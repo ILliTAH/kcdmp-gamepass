@@ -1,0 +1,1478 @@
+{
+  "schema": 2,
+  "generated_by": "anchor_port.py",
+  "builds": [
+    {
+      "id": "gamepass-1.5.6-74126a4c",
+      "store": "gamepass",
+      "game_version": "1.5.6",
+      "ported_from": "steam-1.5.6-bdf8f9e4",
+      "whgame": {
+        "sha256": "74126a4c88e819a2a2d046a2011f69ede0335833fef25c28b660ef953abb2e8d",
+        "size": 89993216,
+        "timestamp": 1782128507,
+        "size_of_image": 96411648,
+        "pdb_guid": "1BE3EC0F2EED4095A3A779B272F03C93",
+        "pdb_age": 2
+      },
+      "supported": true,
+      "resolved": {
+        "WHGame.C_GameStartup.vtable": {
+          "method": "rtti",
+          "vtable": "0x3db00a0",
+          "slots": 12
+        },
+        "WHGame.CSystem.vtable": {
+          "method": "rtti",
+          "vtable": "0x3e652b8",
+          "slots": 239
+        },
+        "WHGame.CScriptSystem.vtable": {
+          "method": "rtti",
+          "vtable": "0x3c96a60",
+          "slots": 69
+        },
+        "WHGame.CXConsole.vtable": {
+          "method": "rtti",
+          "vtable": "0x3e6bde8",
+          "slots": 76
+        },
+        "WHGame.CConsoleCommandArgs.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b18bc0",
+          "slots": 4
+        },
+        "WHGame.CCryAction.vtable": {
+          "method": "rtti",
+          "vtable": "0x40daf18",
+          "slots": 143
+        },
+        "WHGame.CEntitySystem.vtable": {
+          "method": "rtti",
+          "vtable": "0x41115f8",
+          "slots": 98
+        },
+        "WHGame.CEntityClass.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b716b8",
+          "slots": 25
+        },
+        "WHGame.CEntityArchetype.vtable": {
+          "method": "rtti",
+          "vtable": "0x41100f0",
+          "slots": 6
+        },
+        "WHGame.CDXInput.vtable": {
+          "method": "rtti",
+          "vtable": "0x41134a8",
+          "slots": 72
+        },
+        "WHGame.CLog.vtable": {
+          "method": "rtti",
+          "vtable": "0x3c88140",
+          "slots": 37
+        },
+        "WHGame.CTimer.vtable": {
+          "method": "rtti",
+          "vtable": "0x3bbd450",
+          "slots": 31
+        },
+        "WHGame.CStatistics.vtable": {
+          "method": "rtti",
+          "vtable": "0x3e4eb50",
+          "slots": 11
+        },
+        "WHGame.C_Player.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b41120",
+          "slots": 289
+        },
+        "WHGame.C_NPCActor.vtable": {
+          "method": "rtti",
+          "vtable": "0x3ac87d0",
+          "slots": 283
+        },
+        "WHGame.C_Horse.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b08e68",
+          "slots": 280
+        },
+        "WHGame.CAnimatedCharacter.vtable": {
+          "method": "rtti",
+          "vtable": "0x3ae01f0",
+          "slots": 115
+        },
+        "WHGame.CActionController.vtable": {
+          "method": "rtti",
+          "vtable": "0x40edc40",
+          "slots": 58
+        },
+        "WHGame.C_ActorMovementController.vtable": {
+          "method": "rtti",
+          "vtable": "0x3f0ea68",
+          "slots": 17
+        },
+        "WHGame.CGameRules.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b896a0",
+          "slots": 176
+        },
+        "WHGame.C_PickableItem.vtable": {
+          "method": "rtti",
+          "vtable": "0x3f61030",
+          "slots": 130
+        },
+        "WHGame.C_ClothingMaterialDatabase.vtable": {
+          "method": "rtti",
+          "vtable": "0x3db2130",
+          "slots": 22
+        },
+        "WHGame.C_NPCManager.vtable": {
+          "method": "rtti",
+          "vtable": "0x408d340",
+          "slots": 38
+        },
+        "WHGame.C_NPC.vtable": {
+          "method": "rtti",
+          "vtable": "0x408d4e8",
+          "slots": 127
+        },
+        "WHGame.C_Soul.vtable": {
+          "method": "rtti",
+          "vtable": "0x3fdef00",
+          "slots": 187
+        },
+        "WHGame.CFlashUI.vtable": {
+          "method": "rtti",
+          "vtable": "0x40e4d20",
+          "slots": 49
+        },
+        "WHGame.CFlashUIElement.vtable": {
+          "method": "rtti",
+          "vtable": "0x40e3d88",
+          "slots": 113
+        },
+        "WHGame.CFlashPlayer.vtable": {
+          "method": "rtti",
+          "vtable": "0x3e5b420",
+          "slots": 65
+        },
+        "WHGame.CFlashVariableObject.vtable": {
+          "method": "rtti",
+          "vtable": "0x3af0b08",
+          "slots": 47
+        },
+        "WHGame.CD3D9Renderer.vtable": {
+          "method": "rtti",
+          "vtable": "0x3e95dd8",
+          "slots": 381
+        },
+        "WHGame.C_Shop.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b2dce8",
+          "slots": 16
+        },
+        "WHGame.C_ShoppingTransaction.vtable": {
+          "method": "rtti",
+          "vtable": "0x3dad290",
+          "slots": 11
+        },
+        "WHGame.C_RPGInventory.vtable": {
+          "method": "rtti",
+          "vtable": "0x4149f88",
+          "slots": 49
+        },
+        "WHGame.C_UIShop.vtable": {
+          "method": "rtti",
+          "vtable": "0x3dc64a8",
+          "slots": 10
+        },
+        "WHGame.C_ShopModule.vtable": {
+          "method": "rtti",
+          "vtable": "0x401b4a0",
+          "slots": 7
+        },
+        "WHGame.C_ChatFollowManager.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b24dc8",
+          "slots": 3
+        },
+        "WHGame.COperatorQueue.vtable": {
+          "method": "rtti",
+          "vtable": "0x3ad7938",
+          "slots": 15
+        },
+        "WHGame.C_Dice.vtable": {
+          "method": "rtti",
+          "vtable": "0x4009268",
+          "slots": 49
+        },
+        "WHGame.C_PlayerTurnDiceGameState.vtable": {
+          "method": "rtti",
+          "vtable": "0x4008360",
+          "slots": 51
+        },
+        "WHGame.C_HoldingDiceGameState.vtable": {
+          "method": "rtti",
+          "vtable": "0x47eac38",
+          "slots": 51
+        },
+        "WHGame.C_CombatSlotTrigger.vtable": {
+          "method": "rtti",
+          "vtable": "0x3af3328",
+          "slots": 18
+        },
+        "WHGame.C_CombatTriggerPerfectBlock.vtable": {
+          "method": "rtti",
+          "vtable": "0x3af34e0",
+          "slots": 22
+        },
+        "WHGame.C_CombatTriggerMasterStrike.vtable": {
+          "method": "rtti",
+          "vtable": "0x3c1cbe0",
+          "slots": 22
+        },
+        "WHGame.C_CombatTriggerSyncPerfectBlock.vtable": {
+          "method": "rtti",
+          "vtable": "0x3c1cc98",
+          "slots": 22
+        },
+        "WHGame.C_CombatTriggerBlock.vtable": {
+          "method": "rtti",
+          "vtable": "0x3c1cab0",
+          "slots": 18
+        },
+        "WHGame.C_CombatTriggerDodge.vtable": {
+          "method": "rtti",
+          "vtable": "0x3c1cb48",
+          "slots": 18
+        },
+        "WHGame.C_CombatTriggerCombo.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b85a48",
+          "slots": 18
+        },
+        "WHGame.C_CombatTriggerRiposte.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b859b0",
+          "slots": 18
+        },
+        "WHGame.CreateGameStartup": {
+          "method": "export",
+          "rva": "0x19baf20"
+        },
+        "WHGame.C_Game.CreateInstance": {
+          "method": "export",
+          "rva": "0x132563c"
+        },
+        "WHGame.C_GameStartup.Init.slot": {
+          "method": "runtime",
+          "value": 2
+        },
+        "WHGame.C_GameStartup.Update.slot": {
+          "method": "runtime",
+          "value": 4
+        },
+        "WHGame.C_GameStartup.Run.slot": {
+          "method": "runtime",
+          "value": 8
+        },
+        "WHGame.gEnv": {
+          "method": "ctor_data",
+          "rva": "0x49d6f00",
+          "refs_in_0x200": null
+        },
+        "WHGame.ISystem.GetGlobalEnvironment": {
+          "method": "pattern_slot",
+          "slot": 3,
+          "rva": "0x9dc210",
+          "vtable": "0x3e652b8"
+        },
+        "WHGame.ISystem.IsDevMode": {
+          "method": "pattern_slot",
+          "slot": 127,
+          "rva": "0xb6c928",
+          "vtable": "0x3e652b8"
+        },
+        "WHGame.ISystem.SetForceNonDevMode": {
+          "method": "pattern_slot",
+          "slot": 124,
+          "rva": "0x24fafdc",
+          "vtable": "0x3e652b8"
+        },
+        "WHGame.ISystem.ExecuteCommandLine": {
+          "method": "string_slot",
+          "slot": 194,
+          "rva": "0xb70e78",
+          "vtable": "0x3e652b8"
+        },
+        "WHGame.ISystem.LoadXmlFromFile": {
+          "method": "pattern_slot",
+          "slot": 131,
+          "rva": "0xd06afc",
+          "vtable": "0x3e652b8"
+        },
+        "WHGame.ISystem.LoadXmlFromBuffer": {
+          "method": "pattern_slot",
+          "slot": 130,
+          "rva": "0x6ad3a4",
+          "vtable": "0x3e652b8"
+        },
+        "WHGame.IScriptSystem.ExecuteBuffer": {
+          "method": "string_slot",
+          "slot": 6,
+          "rva": "0x87fbb4",
+          "vtable": "0x3c96a60"
+        },
+        "WHGame.IConsole.ExecuteString": {
+          "method": "string_slot",
+          "slot": 35,
+          "rva": "0xb6d2ec",
+          "vtable": "0x3e6bde8"
+        },
+        "WHGame.IConsole.AddCommand": {
+          "method": "string_slot",
+          "slot": 33,
+          "rva": "0xb37030",
+          "vtable": "0x3e6bde8"
+        },
+        "WHGame.IConsole.GetCVar": {
+          "method": "string_slot",
+          "slot": 23,
+          "rva": "0x7600d8",
+          "vtable": "0x3e6bde8"
+        },
+        "WHGame.IEntitySystem.SpawnEntity": {
+          "method": "string_slot",
+          "slot": 12,
+          "rva": "0x3ac934",
+          "vtable": "0x41115f8"
+        },
+        "WHGame.IEntitySystem.RemoveEntity": {
+          "method": "string_slot",
+          "slot": 19,
+          "rva": "0x506a7c",
+          "vtable": "0x41115f8"
+        },
+        "WHGame.IEntitySystem.FindLayer": {
+          "method": "pattern_slot",
+          "slot": 71,
+          "rva": "0x914fb8",
+          "vtable": "0x41115f8"
+        },
+        "WHGame.IEntitySystem.EnableLayer": {
+          "method": "pattern_slot",
+          "slot": 74,
+          "rva": "0x9148fc",
+          "vtable": "0x41115f8"
+        },
+        "WHGame.IEntitySystem.IsLayerEnabled": {
+          "method": "pattern_slot",
+          "slot": 75,
+          "rva": "0x38a6940",
+          "vtable": "0x41115f8"
+        },
+        "WHGame.IEntityClass.GetName": {
+          "method": "pattern_slot",
+          "slot": 2,
+          "rva": "0x6040d0",
+          "vtable": "0x3b716b8"
+        },
+        "WHGame.IEntityArchetype.GetClass": {
+          "method": "pattern_slot",
+          "slot": 1,
+          "rva": "0x6fb3d0",
+          "vtable": "0x41100f0"
+        },
+        "WHGame.IInput.AddConsoleEventListener": {
+          "method": "slot",
+          "slot": 3,
+          "rva": "0xc5f054",
+          "vtable": "0x41134a8"
+        },
+        "WHGame.IInput.RemoveConsoleEventListener": {
+          "method": "slot",
+          "slot": 4,
+          "rva": "0x38d2aa0",
+          "vtable": "0x41134a8"
+        },
+        "WHGame.IInput.ClearKeyState": {
+          "method": "pattern_slot",
+          "slot": 37,
+          "rva": "0x7ac4cc",
+          "vtable": "0x41134a8"
+        },
+        "WHGame.IInput.PostInputEvent": {
+          "method": "slot",
+          "slot": 13,
+          "rva": "0x7ae53c",
+          "vtable": "0x41134a8"
+        },
+        "WHGame.IInput.LookupSymbol": {
+          "method": "slot",
+          "slot": 34,
+          "rva": "0x38d282c",
+          "vtable": "0x41134a8"
+        },
+        "WHGame.ILog.AddCallback": {
+          "method": "string_slot",
+          "slot": 25,
+          "rva": "0x24c7bf0",
+          "vtable": "0x3c88140"
+        },
+        "WHGame.ILog.RemoveCallback": {
+          "method": "pattern_slot",
+          "slot": 26,
+          "rva": "0x24cd164",
+          "vtable": "0x3c88140"
+        },
+        "WHGame.ITimer.PauseTimer": {
+          "method": "string_slot",
+          "slot": 20,
+          "rva": "0xa233d8",
+          "vtable": "0x3bbd450"
+        },
+        "WHGame.ITimer.SetTimeScale": {
+          "method": "string_slot",
+          "slot": 14,
+          "rva": "0x5e9c24",
+          "vtable": "0x3bbd450"
+        },
+        "WHGame.ITimer.IsTimerPaused": {
+          "method": "pattern_slot",
+          "slot": 21,
+          "rva": "0x2503ec8",
+          "vtable": "0x3bbd450"
+        },
+        "WHGame.IStatistics.UnlockAchievement": {
+          "method": "string_slot",
+          "slot": 2,
+          "rva": "0x1e4da30",
+          "vtable": "0x3e4eb50"
+        },
+        "WHGame.IStatistics.SetAchievementProgress": {
+          "method": "string_slot",
+          "slot": 8,
+          "rva": "0x1e4c590",
+          "vtable": "0x3e4eb50"
+        },
+        "WHGame.IGameFramework.PauseGame": {
+          "method": "slot",
+          "slot": 13,
+          "rva": "0xa23148",
+          "vtable": "0x40daf18"
+        },
+        "WHGame.IGame.GetIGameFramework": {
+          "method": "pattern_slot",
+          "slot": 16,
+          "rva": "0x6115c8",
+          "vtable": "0x4130688"
+        },
+        "WHGame.C_ActorMovementController.SetMoveTransitions": {
+          "method": "pattern",
+          "rva": "0x9b2d54"
+        },
+        "WHGame.CAnimatedCharacter.ApplyMovement": {
+          "method": "pattern",
+          "rva": "0x7c8048"
+        },
+        "WHGame.CTagState.Set": {
+          "method": "pattern",
+          "rva": "0x24640e4"
+        },
+        "WHGame.CTagState.SetGroup": {
+          "method": "pattern",
+          "rva": "0x483898"
+        },
+        "WHGame.C_ItemManager.instance": {
+          "method": "pattern",
+          "rva": "0x5546028",
+          "site": "0x183062c"
+        },
+        "WHGame.C_ItemManager.GetItem": {
+          "method": "pattern",
+          "rva": "0x2464df8",
+          "site": "0x183062c"
+        },
+        "WHGame.GameGlobals": {
+          "method": "pattern",
+          "rva": "0x2466240",
+          "site": "0x1830692"
+        },
+        "WHGame.C_Inventory.RemoveItem": {
+          "method": "pattern",
+          "rva": "0x9c2ed0",
+          "site": "0x1830692"
+        },
+        "WHGame.C_ItemManager.PlaceItem": {
+          "method": "pattern",
+          "rva": "0x9be3f8",
+          "site": "0x18308ad"
+        },
+        "WHGame.C_PickableItem.Drop": {
+          "method": "pattern_slot",
+          "slot": 47,
+          "rva": "0x1448670",
+          "vtable": "0x3f61030"
+        },
+        "WHGame.I3DEngine.GetTerrainElevation": {
+          "method": "pattern_slot",
+          "slot": 97,
+          "rva": "0x3f6a44",
+          "vtable": "0x40ba780"
+        },
+        "WHGame.CryString.Assign": {
+          "method": "pattern",
+          "rva": "0x4be6fc",
+          "site": "0x8ecc19"
+        },
+        "WHGame.C_Actor.RefreshLook": {
+          "method": "pattern",
+          "rva": "0x65a4ec",
+          "site": "0x28f86d1"
+        },
+        "WHGame.ItemClass.CanBeWornBy": {
+          "method": "pattern",
+          "rva": "0x5cea8c"
+        },
+        "WHGame.ClothingAttach.ComponentFits": {
+          "method": "pattern",
+          "rva": "0x8ed634"
+        },
+        "WHGame.C_ClothingAttachmentOwnerActor.GetGender": {
+          "method": "pattern_slot",
+          "slot": 7,
+          "rva": "0x8ed000",
+          "vtable": "0x3c039b8"
+        },
+        "WHGame.GlobalAnimationHeaderCAF.GetControllerByJointCRC32": {
+          "method": "pattern",
+          "rva": "0x77ed54"
+        },
+        "WHGame.ClothingAttach.BuildFeatures": {
+          "method": "pattern",
+          "rva": "0x8ede30"
+        },
+        "WHGame.ClothingFeatureVector.Copy": {
+          "method": "pattern",
+          "rva": "0x8ee1a4",
+          "site": "0x8edeaf"
+        },
+        "WHGame.IActorSystem.GetActor.site": {
+          "method": "pattern",
+          "rva": "0x754bda"
+        },
+        "WHGame.C_Actor.GetOrCreateCombatActor": {
+          "method": "pattern",
+          "rva": "0x6fb340"
+        },
+        "WHGame.C_CombatRPG.IsHostileTo": {
+          "method": "pattern",
+          "rva": "0x753854"
+        },
+        "WHGame.C_PlayerOpponentList.BruteForceSkip": {
+          "method": "pattern",
+          "rva": "0xa93688"
+        },
+        "WHGame.C_CombatActionAttackFactory.Create": {
+          "method": "pattern",
+          "rva": "0x8bee14"
+        },
+        "WHGame.C_CombatActionAttackFactory.Decide": {
+          "method": "pattern",
+          "rva": "0x81e648"
+        },
+        "WHGame.C_CombatActor.CommitAction": {
+          "method": "pattern",
+          "rva": "0x8b5ae0"
+        },
+        "WHGame.C_CombatActionAttackFactory.Select": {
+          "method": "pattern",
+          "rva": "0x65658c"
+        },
+        "WHGame.CGameRules.SendHitToActor": {
+          "method": "pattern",
+          "rva": "0x378494"
+        },
+        "WHGame.CProjectile.Launch": {
+          "method": "slot",
+          "slot": 35,
+          "rva": "0x2b417f8",
+          "vtable": "0x47c99d0"
+        },
+        "WHGame.C_ActionActor.GetShootingExpansion": {
+          "method": "pattern",
+          "rva": "0x8a2bf0"
+        },
+        "WHGame.C_ActorShootingExpansion.Attach": {
+          "method": "pattern",
+          "rva": "0x8373e8"
+        },
+        "WHGame.C_ActorShootingExpansion.Charge": {
+          "method": "pattern",
+          "rva": "0x2b67b00"
+        },
+        "WHGame.C_ActorShootingExpansion.Release": {
+          "method": "pattern",
+          "rva": "0x2b64ea8"
+        },
+        "WHGame.C_ActorShootingExpansion.ReloadGo": {
+          "method": "pattern",
+          "rva": "0x2b64c38"
+        },
+        "WHGame.C_ActorShootingExpansion.Prepare": {
+          "method": "pattern",
+          "rva": "0x182504c"
+        },
+        "WHGame.C_ActorActionShootingMain.OnEvent": {
+          "method": "pattern",
+          "rva": "0x2935ec8"
+        },
+        "WHGame.C_ActorActionShootingAiming.Make": {
+          "method": "pattern",
+          "rva": "0x291fb38"
+        },
+        "WHGame.C_ActorShootingExpansion.Cancel": {
+          "method": "pattern",
+          "rva": "0x2b64c14"
+        },
+        "WHGame.C_Player.UseItem": {
+          "method": "slot",
+          "slot": 195,
+          "rva": "0x1fb2de0",
+          "vtable": "0x3b41120"
+        },
+        "WHGame.C_CombatActorCollisionProcess.OnHit": {
+          "method": "pattern",
+          "rva": "0x6ed450"
+        },
+        "WHGame.C_HealthValueEffect.Apply": {
+          "method": "pattern",
+          "rva": "0x142feb8"
+        },
+        "WHGame.C_SoulStates.Set": {
+          "method": "pattern",
+          "rva": "0x4f5d64"
+        },
+        "WHGame.C_ItemHealthValueEffect.ChangeItemHealth": {
+          "method": "pattern",
+          "rva": "0x9c3be4"
+        },
+        "WHGame.C_SoulValueEffect.Apply": {
+          "method": "pattern",
+          "rva": "0x142ff54"
+        },
+        "WHGame.C_ActorActionLand.Land": {
+          "method": "slot",
+          "slot": 38,
+          "rva": "0xb43c00",
+          "vtable": "0x3b156d8"
+        },
+        "WHGame.I_UIGameOver.Show": {
+          "method": "pattern",
+          "rva": "0x2c544a4"
+        },
+        "WHGame.C_CombatActorActionFreeBlock.Create": {
+          "method": "pattern",
+          "rva": "0x27e3164"
+        },
+        "WHGame.C_CombatActorActionGuard.Create": {
+          "method": "pattern",
+          "rva": "0x8c03e4"
+        },
+        "WHGame.C_CombatActorActionGuardMovement.StartLocomotion": {
+          "method": "pattern",
+          "rva": "0x81d9a8"
+        },
+        "WHGame.C_CombatModelProperty.SetInt": {
+          "method": "pattern",
+          "rva": "0x81f400"
+        },
+        "WHGame.C_EquipmentManager.Equip": {
+          "method": "pattern",
+          "rva": "0x9a9dc4"
+        },
+        "WHGame.C_EquipmentManager.Unequip": {
+          "method": "pattern",
+          "rva": "0x9a8cc8"
+        },
+        "WHGame.C_CombatActor.SetZone": {
+          "method": "pattern",
+          "rva": "0x8b8a4c"
+        },
+        "WHGame.CombatDb.Attack": {
+          "method": "pattern",
+          "rva": "0x53dd400",
+          "site": "0x6565cd"
+        },
+        "WHGame.CombatDb.Block": {
+          "method": "pattern",
+          "rva": "0x53dd520",
+          "site": "0xa89c41"
+        },
+        "WHGame.CombatDb.Dodge": {
+          "method": "pattern",
+          "rva": "0x53dd740",
+          "site": "0x8b48ba"
+        },
+        "WHGame.CombatDb.FailedAttack": {
+          "method": "pattern",
+          "rva": "0x53dd850",
+          "site": "0x6f356c"
+        },
+        "WHGame.CombatDb.Hit": {
+          "method": "pattern",
+          "rva": "0x53ddb80",
+          "site": "0xd1b524"
+        },
+        "WHGame.CombatDb.PerfectBlock": {
+          "method": "pattern",
+          "rva": "0x53ddda0",
+          "site": "0x8b28d0"
+        },
+        "WHGame.CombatDb.SyncAttack": {
+          "method": "pattern",
+          "rva": "0x53ddfc0",
+          "site": "0x6fa506"
+        },
+        "WHGame.CombatDb.SyncHit": {
+          "method": "pattern",
+          "rva": "0x53de0d0",
+          "site": "0x13ca291"
+        },
+        "WHGame.CombatDb.SyncPerfectBlockHit": {
+          "method": "pattern",
+          "rva": "0x53de1e0",
+          "site": "0xa46549"
+        },
+        "WHGame.C_CombatActor.FireSlotAction": {
+          "method": "pattern",
+          "rva": "0xa469b0"
+        },
+        "WHGame.CombatPerfectBlock.RowQuery": {
+          "method": "pattern",
+          "rva": "0x8b2730"
+        },
+        "WHGame.C_CombatActor.RequestRiposte": {
+          "method": "pattern",
+          "rva": "0xd10df0"
+        },
+        "WHGame.CombatClinch.Start": {
+          "method": "pattern",
+          "rva": "0x979dcc"
+        },
+        "WHGame.CombatClinch.PairSetup": {
+          "method": "pattern",
+          "rva": "0x8bcc50"
+        },
+        "WHGame.CombatClinch.StartType": {
+          "method": "pattern",
+          "rva": "0x53dea64",
+          "site": "0x979e4c"
+        },
+        "WHGame.CombatSync.RowSelect": {
+          "method": "pattern",
+          "rva": "0x81b964"
+        },
+        "WHGame.CombatInput.AttackHeavy": {
+          "method": "pattern",
+          "rva": "0x53df594",
+          "site": "0x2859d96"
+        },
+        "WHGame.C_CombatRPG.WouldKillOpponent": {
+          "method": "pattern",
+          "rva": "0xc06dd0"
+        },
+        "WHGame.C_Human.DrawItemsAnimated": {
+          "method": "pattern",
+          "rva": "0x98e108"
+        },
+        "WHGame.C_Human.HolsterItemsAnimated": {
+          "method": "pattern",
+          "rva": "0x179bff8"
+        },
+        "WHGame.C_DrawItemLogic.Start": {
+          "method": "pattern",
+          "rva": "0x9b9e68"
+        },
+        "WHGame.C_UIMenu.AddBasicButton": {
+          "method": "pattern",
+          "rva": "0x52465c"
+        },
+        "WHGame.C_UIMenu.ButtonIdFromString": {
+          "method": "pattern",
+          "rva": "0x15e05ec",
+          "site": "0x15e05a0"
+        },
+        "WHGame.C_UIMenu.OnConfirm": {
+          "method": "pattern",
+          "rva": "0x2c4135c"
+        },
+        "WHGame.C_UIMenu.PreparePage": {
+          "method": "pattern",
+          "rva": "0xbae068"
+        },
+        "WHGame.StdFunction.Destroy": {
+          "method": "pattern",
+          "rva": "0x21c8860",
+          "site": "0x52479c"
+        },
+        "WHGame.CryString.Destroy": {
+          "method": "pattern",
+          "rva": "0x4c79c8",
+          "site": "0x52479c"
+        },
+        "WHGame.C_UIInventoryBase.OnSoulPropertyChanged": {
+          "method": "pattern",
+          "rva": "0x1748804"
+        },
+        "WHGame.C_UIApseCharacter.UseItem": {
+          "method": "pattern",
+          "rva": "0x9dbb0c"
+        },
+        "WHGame.C_Item.HasType": {
+          "method": "pattern",
+          "rva": "0x41ac60",
+          "site": "0x9dbb0c"
+        },
+        "WHGame.C_UIApseCharacter.ItemOwnerActor": {
+          "method": "pattern",
+          "rva": "0x9dc020",
+          "site": "0x9dbb0c"
+        },
+        "WHGame.C_QAMManager.Unassign": {
+          "method": "pattern",
+          "rva": "0x20cc150"
+        },
+        "WHGame.HorseWhistle.FetchHorse": {
+          "method": "pattern",
+          "rva": "0x2a88fc8"
+        },
+        "WHGame.PairCheck": {
+          "method": "pattern",
+          "rva": "0x504858"
+        },
+        "WHGame.IPhysicalWorld.DestroyPhysicalEntity": {
+          "method": "slot",
+          "slot": 19,
+          "rva": "0x7819e0",
+          "vtable": "0x411a9c0"
+        },
+        "WHGame.IPhysicalEntity.AddRef": {
+          "method": "slot",
+          "slot": 2,
+          "rva": "0x3cd714",
+          "vtable": "0x3ae4758"
+        },
+        "WHGame.IPhysicalEntity.Release": {
+          "method": "slot",
+          "slot": 3,
+          "rva": "0x3ce4d4",
+          "vtable": "0x3ae4758"
+        },
+        "WHGame.CallbackAction.ShowEntity": {
+          "method": "pattern",
+          "rva": "0x29386f8"
+        },
+        "WHGame.CallbackAction.EntityOf": {
+          "method": "pattern",
+          "rva": "0x756370"
+        },
+        "WHGame.C_NPCManager.instance": {
+          "method": "pattern",
+          "rva": "0x5552c40",
+          "site": "0x7d27c0"
+        },
+        "WHGame.C_NPCManager.FindByEntityId": {
+          "method": "pattern_slot",
+          "slot": 4,
+          "rva": "0x5d39ac",
+          "vtable": "0x408d340"
+        },
+        "WHGame.C_BrainMakerMap.instance": {
+          "method": "pattern",
+          "rva": "0x5551898",
+          "site": "0xbd4f4d"
+        },
+        "WHGame.C_NPC.MakeBrain": {
+          "method": "pattern",
+          "rva": "0x4472ec"
+        },
+        "WHGame.C_NPC.SetBrain": {
+          "method": "pattern_slot",
+          "slot": 21,
+          "rva": "0xbd45e8",
+          "vtable": "0x408d4e8"
+        },
+        "WHGame.C_Soul.GetBrainGuid": {
+          "method": "pattern_slot",
+          "slot": 70,
+          "rva": "0x446520",
+          "vtable": "0x3fdef00"
+        },
+        "WHGame.C_Soul.GetCompanionManager": {
+          "method": "pattern_slot",
+          "slot": 118,
+          "rva": "0x1a74230",
+          "vtable": "0x3fdef00"
+        },
+        "WHGame.C_CompanionManager.Attach": {
+          "method": "pattern",
+          "rva": "0xbfde0c"
+        },
+        "WHGame.C_CompanionManager.Detach": {
+          "method": "pattern",
+          "rva": "0xbfdaec"
+        },
+        "WHGame.C_DisableSubSystem.Evaluate": {
+          "method": "pattern",
+          "rva": "0x98005c"
+        },
+        "WHGame.SetPlayerDogMode": {
+          "method": "pattern",
+          "rva": "0x339d554"
+        },
+        "WHGame.IPhysicalWorld.GetEntitiesInBox": {
+          "method": "pattern_slot",
+          "slot": 34,
+          "rva": "0x786f24",
+          "vtable": "0x411a9c0"
+        },
+        "WHGame.IPhysicalEntity.GetType": {
+          "method": "slot",
+          "slot": 1,
+          "rva": "0x1a51f10",
+          "vtable": "0x3ae4758"
+        },
+        "WHGame.IPhysicalEntity.GetParams": {
+          "method": "slot",
+          "slot": 5,
+          "rva": "0x3b00d4",
+          "vtable": "0x3ae4758"
+        },
+        "WHGame.IPhysicalEntity.GetStatus": {
+          "method": "slot",
+          "slot": 6,
+          "rva": "0x7cb144",
+          "vtable": "0x3ae4758"
+        },
+        "WHGame.IPhysicalEntity.GetForeignData": {
+          "method": "slot",
+          "slot": 10,
+          "rva": "0x5d9ae4",
+          "vtable": "0x3ae4758"
+        },
+        "WHGame.IPhysicalEntity.GetiForeignData": {
+          "method": "slot",
+          "slot": 11,
+          "rva": "0x755260",
+          "vtable": "0x3ae4758"
+        },
+        "WHGame.IGeometry.GetType": {
+          "method": "slot",
+          "slot": 1,
+          "rva": "0x1a51f10",
+          "vtable": "0x3afb600"
+        },
+        "WHGame.IGeometry.GetPrimitiveCount": {
+          "method": "slot",
+          "slot": 29,
+          "rva": "0x1a52f60",
+          "vtable": "0x3afb600"
+        },
+        "WHGame.IGeometry.GetData": {
+          "method": "slot",
+          "slot": 30,
+          "rva": "0x1a54450",
+          "vtable": "0x3afb600"
+        },
+        "WHGame.IEntity.GetId": {
+          "method": "slot",
+          "slot": 1,
+          "rva": "0x1a55ba0",
+          "vtable": "0x410d220"
+        },
+        "WHGame.IEntity.GetClass": {
+          "method": "slot",
+          "slot": 3,
+          "rva": "0x9dc210",
+          "vtable": "0x410d220"
+        },
+        "WHGame.IEntity.GetName": {
+          "method": "slot",
+          "slot": 18,
+          "rva": "0x1a55b70",
+          "vtable": "0x410d220"
+        },
+        "WHGame.C_UIPlayer.OnHit": {
+          "method": "slot",
+          "slot": 4,
+          "rva": "0xc06500",
+          "vtable": "0x3f91e68"
+        },
+        "WHGame.C_UIPlayer.UpdateLook": {
+          "method": "pattern",
+          "rva": "0x846c00"
+        },
+        "WHGame.C_UIOverlay.RemoveAllOverlays": {
+          "method": "slot",
+          "slot": 16,
+          "rva": "0x19ba364",
+          "vtable": "0x3f91d28"
+        },
+        "WHGame.C_UIOverlay.AddOverlay": {
+          "method": "slot",
+          "slot": 14,
+          "rva": "0x16c9474",
+          "vtable": "0x3f91d28"
+        },
+        "WHGame.IFlashUI.GetUIElement.slot": {
+          "method": "slot",
+          "slot": 14,
+          "rva": "0x8a468c",
+          "vtable": "0x40e4d20"
+        },
+        "WHGame.IUIElement.GetInstance.slot": {
+          "method": "slot",
+          "slot": 4,
+          "rva": "0x521874",
+          "vtable": "0x40e3d88"
+        },
+        "WHGame.IUIElement.Init": {
+          "method": "string_slot",
+          "slot": 15,
+          "rva": "0x8d0ca8",
+          "vtable": "0x40e3d88"
+        },
+        "WHGame.IUIElement.IsInit.slot": {
+          "method": "slot",
+          "slot": 18,
+          "rva": "0x79b910",
+          "vtable": "0x40e3d88"
+        },
+        "WHGame.IUIElement.SetVisible": {
+          "method": "string_slot",
+          "slot": 28,
+          "rva": "0x52b75c",
+          "vtable": "0x40e3d88"
+        },
+        "WHGame.IUIElement.CallFunction.slot": {
+          "method": "slot",
+          "slot": 68,
+          "rva": "0x8a66c0",
+          "vtable": "0x40e3d88"
+        },
+        "WHGame.CFlashUIElement.player.offset": {
+          "method": "runtime",
+          "value": 88
+        },
+        "WHGame.IFlashPlayer.Load": {
+          "method": "string_slot",
+          "slot": 0,
+          "rva": "0x24e7eb4",
+          "vtable": "0x3e5b420"
+        },
+        "WHGame.IFlashPlayer.SetVariable.slot": {
+          "method": "slot",
+          "slot": 39,
+          "rva": "0x24eb344",
+          "vtable": "0x3e5b420"
+        },
+        "WHGame.IFlashPlayer.GetVariableValue.slot": {
+          "method": "slot",
+          "slot": 41,
+          "rva": "0x24e6f38",
+          "vtable": "0x3e5b420"
+        },
+        "WHGame.IFlashPlayer.GetVariableObject.slot": {
+          "method": "slot",
+          "slot": 40,
+          "rva": "0x8d20a4",
+          "vtable": "0x3e5b420"
+        },
+        "WHGame.IFlashPlayer.Invoke.slot": {
+          "method": "slot",
+          "slot": 46,
+          "rva": "0x146ef60",
+          "vtable": "0x3e5b420"
+        },
+        "WHGame.IFlashPlayer.GetWidth.slot": {
+          "method": "slot",
+          "slot": 54,
+          "rva": "0x1a52c20",
+          "vtable": "0x3e5b420"
+        },
+        "WHGame.IFlashPlayer.GetViewport.slot": {
+          "method": "slot",
+          "slot": 5,
+          "rva": "0x52ec5c",
+          "vtable": "0x3e5b420"
+        },
+        "WHGame.IFlashPlayer.GetHeight.slot": {
+          "method": "slot",
+          "slot": 55,
+          "rva": "0x1a52ba0",
+          "vtable": "0x3e5b420"
+        },
+        "WHGame.IFlashVariableObject.Release.slot": {
+          "method": "slot",
+          "slot": 0,
+          "rva": "0x8a5960",
+          "vtable": "0x3af0b08"
+        },
+        "WHGame.IFlashVariableObject.Invoke.slot": {
+          "method": "slot",
+          "slot": 14,
+          "rva": "0x8a59b0",
+          "vtable": "0x3af0b08"
+        },
+        "WHGame.IFlashVariableObject.SetDisplayInfo.slot": {
+          "method": "slot",
+          "slot": 25,
+          "rva": "0x8a3dbc",
+          "vtable": "0x3af0b08"
+        },
+        "WHGame.IFlashVariableObject.GetDisplayInfo.slot": {
+          "method": "slot",
+          "slot": 26,
+          "rva": "0x8a4020",
+          "vtable": "0x3af0b08"
+        },
+        "WHGame.IRenderer.ProjectToScreen.slot": {
+          "method": "slot",
+          "slot": 97,
+          "rva": "0x81ab10",
+          "vtable": "0x3e95dd8"
+        },
+        "WHGame.C_Human.HandItems": {
+          "method": "slot",
+          "slot": 191,
+          "rva": "0x4f4770",
+          "vtable": "0x3ac7ed8"
+        },
+        "WHGame.C_ItemAttachmentManager.AttachItemToHand": {
+          "method": "pattern",
+          "rva": "0x9bc5f8"
+        },
+        "WHGame.C_ItemAttachmentManager.DetachHands": {
+          "method": "pattern",
+          "rva": "0x9dc0e8"
+        },
+        "WHGame.C_ItemAttachmentManager.ItemInHand": {
+          "method": "pattern",
+          "rva": "0x4f4190"
+        },
+        "WHGame.HandUse.PerHand": {
+          "method": "pattern",
+          "rva": "0x1f65c40"
+        },
+        "WHGame.HandUse.NpcOfActor": {
+          "method": "pattern",
+          "rva": "0x838428",
+          "site": "0x1f65c40"
+        },
+        "WHGame.HandUse.IsLightItem": {
+          "method": "pattern",
+          "rva": "0x9aacf4",
+          "site": "0x1f65c40"
+        },
+        "WHGame.C_Shop.IsKeeper": {
+          "method": "pattern_slot",
+          "slot": 5,
+          "rva": "0x13ae8cc",
+          "vtable": "0x3b2dce8"
+        },
+        "WHGame.C_Shop.AddKeeper": {
+          "method": "pattern_slot",
+          "slot": 6,
+          "rva": "0xd4660c",
+          "vtable": "0x3b2dce8"
+        },
+        "WHGame.C_Shop.StartShopping": {
+          "method": "pattern_slot",
+          "slot": 7,
+          "rva": "0xc77660",
+          "vtable": "0x3b2dce8"
+        },
+        "WHGame.C_Shop.TakeItem": {
+          "method": "pattern_slot",
+          "slot": 8,
+          "rva": "0x1997d60",
+          "vtable": "0x3b2dce8"
+        },
+        "WHGame.C_Shop.SetHaggle": {
+          "method": "slot",
+          "slot": 10,
+          "rva": "0x1a5d3e0",
+          "vtable": "0x3b2dce8"
+        },
+        "WHGame.C_ShoppingTransaction.Accept": {
+          "method": "pattern_slot",
+          "slot": 3,
+          "rva": "0x150f754",
+          "vtable": "0x3dad290"
+        },
+        "WHGame.C_ShoppingTransaction.Totals": {
+          "method": "pattern_slot",
+          "slot": 7,
+          "rva": "0x98a1c4",
+          "vtable": "0x3dad290"
+        },
+        "WHGame.C_ShoppingTransaction.Commit": {
+          "method": "pattern_slot",
+          "slot": 10,
+          "rva": "0x9c2cd4",
+          "vtable": "0x3dad290"
+        },
+        "WHGame.C_RPGInventory.ShopPrice": {
+          "method": "pattern_slot",
+          "slot": 6,
+          "rva": "0xc00d18",
+          "vtable": "0x4149f88"
+        },
+        "WHGame.C_UIShop.Deal": {
+          "method": "pattern",
+          "rva": "0x201b310"
+        },
+        "WHGame.C_UIShop.Close": {
+          "method": "pattern",
+          "rva": "0x80431c"
+        },
+        "WHGame.ShopSellGate": {
+          "method": "pattern",
+          "rva": "0xc00514"
+        },
+        "WHGame.FollowableType": {
+          "method": "pattern",
+          "rva": "0x1289ce0"
+        },
+        "WHGame.VectorU32.EmplaceReallocate": {
+          "method": "pattern",
+          "rva": "0x6577a0",
+          "site": "0x2b46a54"
+        },
+        "WHGame.C_ActorActionFollow.LeaderSpeed": {
+          "method": "pattern",
+          "rva": "0x29153b0"
+        },
+        "WHGame.IEntitySystem.GetEntity": {
+          "method": "slot",
+          "slot": 14,
+          "rva": "0x48d448",
+          "vtable": "0x41115f8"
+        },
+        "WHGame.IEntity.GetCharacter": {
+          "method": "slot",
+          "slot": 101,
+          "rva": "0x60ce0c",
+          "vtable": "0x410d220"
+        },
+        "WHGame.ICharacterInstance.GetISkeletonAnim": {
+          "method": "slot",
+          "slot": 5,
+          "rva": "0x1a5f580",
+          "vtable": "0x40fa8b8"
+        },
+        "WHGame.ICharacterInstance.GetIDefaultSkeleton": {
+          "method": "slot",
+          "slot": 11,
+          "rva": "0x7c9890",
+          "vtable": "0x40fa8b8"
+        },
+        "WHGame.ISkeletonAnim.PushPoseModifier": {
+          "method": "slot",
+          "slot": 38,
+          "rva": "0x426dac",
+          "vtable": "0x3b07ed0"
+        },
+        "WHGame.IDefaultSkeleton.GetJointIDByName": {
+          "method": "slot",
+          "slot": 7,
+          "rva": "0x718b4c",
+          "vtable": "0x4105ec0"
+        },
+        "WHGame.IAnimationOperatorQueue.PushOrientation": {
+          "method": "slot",
+          "slot": 9,
+          "rva": "0xf85284",
+          "vtable": "0x3ad7938"
+        },
+        "WHGame.IAnimationOperatorQueue.PushStoreRelative": {
+          "method": "slot",
+          "slot": 10,
+          "rva": "0x3840090",
+          "vtable": "0x3ad7938"
+        },
+        "WHGame.IAnimationOperatorQueue.PushComputeAbsolute": {
+          "method": "slot",
+          "slot": 13,
+          "rva": "0x428d3c",
+          "vtable": "0x3ad7938"
+        },
+        "WHGame.IAnimationOperatorQueue.Clear": {
+          "method": "slot",
+          "slot": 14,
+          "rva": "0x383e92c",
+          "vtable": "0x3ad7938"
+        },
+        "WHGame.COperatorQueue.Create": {
+          "method": "pattern",
+          "rva": "0x5ace54",
+          "site": "0x37788c6"
+        },
+        "WHGame.C_Dice.Start": {
+          "method": "pattern",
+          "rva": "0x2f31130"
+        },
+        "WHGame.C_Dice.PlaceSeats": {
+          "method": "pattern",
+          "rva": "0x2f2c288"
+        },
+        "WHGame.C_Dice.CanAct": {
+          "method": "slot",
+          "slot": 47,
+          "rva": "0x2f27a28",
+          "vtable": "0x4009268"
+        },
+        "WHGame.C_Dice.KeyContinue": {
+          "method": "pattern",
+          "rva": "0x2f2b108"
+        },
+        "WHGame.C_Dice.KeyPass": {
+          "method": "pattern",
+          "rva": "0x2f2afac"
+        },
+        "WHGame.DiceModel.Continue": {
+          "method": "pattern",
+          "rva": "0x2f31a58"
+        },
+        "WHGame.DiceModel.PickValue": {
+          "method": "pattern",
+          "rva": "0x2f31594"
+        },
+        "WHGame.DiceModel.EndGame": {
+          "method": "pattern",
+          "rva": "0x2f0fa04"
+        },
+        "WHGame.DiceModel.RollFor": {
+          "method": "pattern",
+          "rva": "0x2f0fce8"
+        },
+        "WHGame.DiceModel.Roll": {
+          "method": "pattern",
+          "rva": "0x2f325d0"
+        },
+        "WHGame.C_PlayerTurnDiceGameState.Pass": {
+          "method": "slot",
+          "slot": 22,
+          "rva": "0x2f31950",
+          "vtable": "0x4008360"
+        },
+        "WHGame.CombatMultiTrigger.Update": {
+          "method": "slot",
+          "slot": 9,
+          "rva": "0x8b18e0",
+          "vtable": "0x3b856b0"
+        },
+        "WHGame.CombatMultiTrigger.Append": {
+          "method": "pattern",
+          "rva": "0x8be3fc"
+        },
+        "WHGame.CombatMultiTrigger.Destroy": {
+          "method": "slot",
+          "slot": 0,
+          "rva": "0xfa9378",
+          "vtable": "0x3b856b0"
+        },
+        "WHGame.CombatMultiTrigger.Clear": {
+          "method": "slot",
+          "slot": 1,
+          "rva": "0x286779c",
+          "vtable": "0x3b856b0"
+        },
+        "WHGame.CombatMultiTrigger.Find": {
+          "method": "slot",
+          "slot": 12,
+          "rva": "0x2866484",
+          "vtable": "0x3b856b0"
+        },
+        "WHGame.CombatMultiTrigger.FindReady": {
+          "method": "slot",
+          "slot": 14,
+          "rva": "0xa46db4",
+          "vtable": "0x3b856b0"
+        },
+        "WHGame.CombatMultiTrigger.AddWindow": {
+          "method": "pattern",
+          "rva": "0x8bd754"
+        },
+        "WHGame.CombatSlotTrigger.End": {
+          "method": "pattern",
+          "rva": "0x8bdea0"
+        },
+        "WHGame.CombatMultiTrigger.DestroyOther": {
+          "method": "slot",
+          "slot": 0,
+          "rva": "0xfa9290",
+          "vtable": "0x3b85830"
+        },
+        "WHGame.CombatUpdatedObject.Unregister": {
+          "method": "pattern",
+          "rva": "0x8b1b8c"
+        },
+        "WHGame.CombatSlotPlanner.Pass": {
+          "method": "pattern",
+          "rva": "0x1ecd020"
+        },
+        "WHGame.CPoseAlignerChain.Execute": {
+          "method": "slot",
+          "slot": 5,
+          "rva": "0x95a7a4",
+          "vtable": "0x3be5998"
+        },
+        "WHGame.CPoseAlignerChain.SetChain": {
+          "method": "slot",
+          "slot": 8,
+          "rva": "0x426ea0",
+          "vtable": "0x3be5998"
+        },
+        "WHGame.CFlashUIElement.Destroy": {
+          "method": "slot",
+          "slot": 0,
+          "rva": "0x16c4514",
+          "vtable": "0x40e3d88"
+        },
+        "WHGame.UIElementLuaCallback.Dispatch": {
+          "method": "pattern",
+          "rva": "0x364c3cc"
+        },
+        "WHGame.UIActionLuaCallback.Dispatch": {
+          "method": "pattern",
+          "rva": "0x364c154"
+        },
+        "WHGame.lua_pcall": {
+          "method": "pattern",
+          "rva": "0x6da6b4"
+        },
+        "WHGame.CD3D9Renderer.ChangeResolution": {
+          "method": "pattern",
+          "rva": "0x25bc648"
+        },
+        "WHGame.r_HDRPipeline": {
+          "method": "pattern",
+          "rva": "0x519a55c",
+          "site": "0x1e80c90"
+        }
+      },
+      "exe": {
+        "sha256": null,
+        "size": 1526272,
+        "timestamp": 1790760143,
+        "size_of_image": null,
+        "note": "the Game Pass KingdomCome.exe cannot be read by a user process (the package denies it); only its size is known"
+      },
+      "steam_buildid": null,
+      "ported_by": "tools/kcdmp-gamepass/anchor_port.py (this fork), from KCD:MP 0.35.0's steam-1.5.6-bdf8f9e4 entry"
+    }
+  ]
+}

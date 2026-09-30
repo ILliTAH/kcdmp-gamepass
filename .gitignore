@@ -1,0 +1,8 @@
+# Game binaries and KCD:MP's own files are never committed: not ours to redistribute.
+WHGame*.dll
+KingdomCome.exe
+kcdmp/
+*.zip
+release/payload/
+settings.json
+release/*.exe
