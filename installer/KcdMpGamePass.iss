@@ -65,7 +65,7 @@ begin
     WizardForm.FinishedLabel.Caption :=
       'Before the first start, download the KCD:MP client (KcdMp-<version>-win-x64.zip)' + #13#10 +
       'from kcd-mp.com into your Downloads folder. The first start unpacks it, asks once' + #13#10 +
-      'for admin rights (a Windows Defender exclusion for that folder), adds the Game Pass' + #13#10 +
+      'for admin rights (a Windows Defender exclusion for this package''s folder), adds the Game Pass' + #13#10 +
       'build to its table, asks your name and shows the servers.';
 end;
 

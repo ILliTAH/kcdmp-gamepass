@@ -7,9 +7,9 @@
   https://github.com/ILliTAH/KingdomCome-Together (branch `hostworld`). The
   injector is built there from `native/KCDMP_LauncherInjector` with Visual
   Studio 2019.
-- `gamepass-1.5.6-74126a4c.json` — 287 addresses in the Xbox Game Pass build
+- `gamepass-1.5.6-74126a4c.json` — 352 addresses in the Xbox Game Pass build
   of Kingdom Come: Deliverance II (v1.5.6, WHGame.dll sha256 `74126a4c…`),
-  derived by `anchor_port.py` from the Steam entry in KCD:MP 0.35.0's
+  derived by `anchor_port.py` from the Steam entry in KCD:MP 0.36.0's
   `builds.json`. The anchor *names* are KCD:MP's; the addresses were computed
   here.
 - Not included, by design: any file of KCD:MP (kcd-mp.com; the player

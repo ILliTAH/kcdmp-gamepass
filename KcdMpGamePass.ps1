@@ -98,25 +98,33 @@ if (-not (Test-Path -LiteralPath (Join-Path $kcdmpDir 'KcdMp_launcher.exe'))) { 
 
 # --- 3. Windows Defender -------------------------------------------------------
 # Defender removes KcdMp_client.dll (it is an unsigned DLL made to be injected
-# into a game). An exclusion for KCD:MP's folder needs one elevation.
+# into a game) and, once it has watched an injection, this package's injector
+# too (Behavior:Win32/DefenseEvasion.A!ml). One exclusion for this whole folder
+# -- the injector, and KCD:MP's files under kcdmp\ -- needs one elevation.
 # Whether the exclusion is there cannot be read without admin rights, so it is
-# asked for once (remembered), and again whenever the DLL has gone missing.
+# asked for once per folder (remembered), and again whenever the DLL has gone
+# missing. Packages up to 0.35.0.1 excluded kcdmp\ only: those players are
+# asked once more.
 $settings = Read-Settings
 function Request-Exclusion {
-    Write-Host 'Windows Defender deletes KCD:MP''s client DLL. Adding an exclusion for its folder (one admin prompt)...'
+    Write-Host 'Windows Defender deletes KCD:MP''s client DLL and this package''s injector. Adding an exclusion for this folder (one admin prompt)...'
     try {
         Start-Process -FilePath 'powershell.exe' -Verb RunAs -Wait -ArgumentList '-NoProfile', '-Command',
-            "Add-MpPreference -ExclusionPath '$kcdmpDir'"
-        $settings | Add-Member -NotePropertyName DefenderExclusionAsked -NotePropertyValue $true -Force
+            "Add-MpPreference -ExclusionPath '$($here -replace "'", "''")'"
+        $settings | Add-Member -NotePropertyName DefenderExclusionFolder -NotePropertyValue $here -Force
         Save-Settings $settings
-    } catch { Write-Warning "No exclusion was added ($($_.Exception.Message)). If the DLL keeps disappearing, add $kcdmpDir under Windows Security > Exclusions." }
+    } catch { Write-Warning "No exclusion was added ($($_.Exception.Message)). If files keep disappearing, add $here under Windows Security > Exclusions." }
 }
-if (-not $NoDefender -and -not $settings.DefenderExclusionAsked) { Request-Exclusion }
+if (-not $NoDefender -and $settings.DefenderExclusionFolder -ne $here) { Request-Exclusion }
 if (-not (Test-Path -LiteralPath $dll)) {
     Write-Host 'KcdMp_client.dll is missing (Defender took it).'
     if (-not $NoDefender) { Request-Exclusion }
     Expand-KcdMp
-    if (-not (Test-Path -LiteralPath $dll)) { throw "KcdMp_client.dll is removed as soon as it is unpacked. Restore it in Windows Security > Protection history and exclude $kcdmpDir." }
+    if (-not (Test-Path -LiteralPath $dll)) { throw "KcdMp_client.dll is removed as soon as it is unpacked. Restore it in Windows Security > Protection history and exclude $here." }
+}
+# The installer put the injector here; only Defender takes it away, and only the player can give it back.
+if (-not $Browse -and -not (Test-Path -LiteralPath $injector)) {
+    throw "KCDMP_LauncherInjector.exe is gone from $here (Windows Defender removed it). Give it back in Windows Security > Virus & threat protection > Protection history (the entry for it > Actions > Allow on device), or run the installer again, then start this again."
 }
 
 # --- 4. the build table ------------------------------------------------------
@@ -127,11 +135,15 @@ if ($hash -ne $entry.whgame.sha256) {
 }
 $tablePath = Join-Path $kcdmpDir 'builds.json'
 $table = Get-Content -LiteralPath $tablePath -Raw | ConvertFrom-Json
-if (-not ($table.builds | Where-Object { $_.id -eq $entry.id })) {
-    Copy-Item -LiteralPath $tablePath -Destination "$tablePath.orig" -Force
-    $table.builds += $entry
+# KCD:MP's own update rewrites builds.json (our entry gone), and a package for a
+# newer KCD:MP brings a bigger entry than the one merged before: either way ours
+# goes in, replacing any older copy. The original is kept only while it is KCD:MP's.
+$current = $table.builds | Where-Object { $_.id -eq $entry.id } | Select-Object -First 1
+if (-not $current -or ($current | ConvertTo-Json -Depth 8 -Compress) -ne ($entry | ConvertTo-Json -Depth 8 -Compress)) {
+    if (-not $current) { Copy-Item -LiteralPath $tablePath -Destination "$tablePath.orig" -Force }
+    $table.builds = @(@($table.builds | Where-Object { $_.id -ne $entry.id }) + $entry)
     $table | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $tablePath -Encoding UTF8
-    Write-Host "Added $($entry.id) to KCD:MP's builds.json (the original is builds.json.orig)."
+    Write-Host "Put $($entry.id) ($(@($entry.resolved.PSObject.Properties).Count) anchors) into KCD:MP's builds.json (the original is builds.json.orig)."
 }
 # KCD:MP's own Steam entry says which anchors this KCD:MP version wants.
 $steam = $table.builds | Where-Object { $_.store -eq 'steam' } | Select-Object -First 1

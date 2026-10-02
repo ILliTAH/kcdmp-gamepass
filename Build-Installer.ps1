@@ -3,7 +3,7 @@
 #   powershell -ExecutionPolicy Bypass -File Build-Installer.ps1
 param(
     # The KCD:MP version the build entry was made for, then this package's revision.
-    [string] $Version = '0.35.0.1'
+    [string] $Version = '0.36.0.1'
 )
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot

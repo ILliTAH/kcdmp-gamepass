@@ -117,6 +117,21 @@
           "vtable": "0x3b896a0",
           "slots": 176
         },
+        "WHGame.C_CameraManager.vtable": {
+          "method": "rtti",
+          "vtable": "0x4129028",
+          "slots": 4
+        },
+        "WHGame.C_CameraThirdPerson.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b17420",
+          "slots": 13
+        },
+        "WHGame.C_CameraFirstPerson.vtable": {
+          "method": "rtti",
+          "vtable": "0x3b17378",
+          "slots": 13
+        },
         "WHGame.C_PickableItem.vtable": {
           "method": "rtti",
           "vtable": "0x3f61030",
@@ -125,6 +140,11 @@
         "WHGame.C_ClothingMaterialDatabase.vtable": {
           "method": "rtti",
           "vtable": "0x3db2130",
+          "slots": 22
+        },
+        "WHGame.C_RiderExpansion.vtable": {
+          "method": "rtti",
+          "vtable": "0x3bf9648",
           "slots": 22
         },
         "WHGame.C_NPCManager.vtable": {
@@ -484,6 +504,32 @@
           "method": "pattern",
           "rva": "0x483898"
         },
+        "WHGame.C_CameraThirdPerson.Update": {
+          "method": "slot",
+          "slot": 1,
+          "rva": "0x3a5dc7c",
+          "vtable": "0x3b17420"
+        },
+        "WHGame.C_CameraThirdPerson.OnInput": {
+          "method": "slot",
+          "slot": 2,
+          "rva": "0x3a5d510",
+          "vtable": "0x3b17420"
+        },
+        "WHGame.C_PlayerInteractor.Update": {
+          "method": "slot",
+          "slot": 5,
+          "rva": "0x8a26b4",
+          "vtable": "0x3b1c128"
+        },
+        "WHGame.C_PlayerInteractor.PlaceCursor": {
+          "method": "pattern",
+          "rva": "0x8a3cc8"
+        },
+        "WHGame.C_PlayerInteractor.CursorVisible": {
+          "method": "pattern",
+          "rva": "0x8a4b68"
+        },
         "WHGame.C_ItemManager.instance": {
           "method": "pattern",
           "rva": "0x5546028",
@@ -503,6 +549,18 @@
           "method": "pattern",
           "rva": "0x9c2ed0",
           "site": "0x1830692"
+        },
+        "WHGame.C_Inventory.MoveItem": {
+          "method": "pattern",
+          "rva": "0x9c2ed0"
+        },
+        "WHGame.C_Inventory.AddItem": {
+          "method": "pattern",
+          "rva": "0x417870"
+        },
+        "WHGame.C_Inventory.CreateFromDescriptor": {
+          "method": "pattern",
+          "rva": "0x417690"
         },
         "WHGame.C_ItemManager.PlaceItem": {
           "method": "pattern",
@@ -668,6 +726,66 @@
           "rva": "0xb43c00",
           "vtable": "0x3b156d8"
         },
+        "WHGame.C_RiderSync.ThrowRider": {
+          "method": "slot",
+          "slot": 3,
+          "rva": "0x2a8bf18",
+          "vtable": "0x3f44d10"
+        },
+        "WHGame.C_RiderExpansion.Throw": {
+          "method": "slot",
+          "slot": 17,
+          "rva": "0x2a8beec",
+          "vtable": "0x3bf9648"
+        },
+        "WHGame.RiderExpansion.ByType": {
+          "method": "pattern",
+          "rva": "0x651080"
+        },
+        "WHGame.HorsePullDown.Can": {
+          "method": "pattern",
+          "rva": "0x6fd14c"
+        },
+        "WHGame.HorsePullDown.Request": {
+          "method": "pattern",
+          "rva": "0x27f7d20"
+        },
+        "WHGame.HorsePullDown.HasAbility": {
+          "method": "pattern",
+          "rva": "0x285fa48"
+        },
+        "WHGame.HorsePullDown.Roll": {
+          "method": "pattern",
+          "rva": "0x2861348"
+        },
+        "WHGame.HorsePullDown.OnDismount": {
+          "method": "pattern",
+          "rva": "0x27f9b14"
+        },
+        "WHGame.HorsePullDown.End": {
+          "method": "pattern",
+          "rva": "0x27f655c"
+        },
+        "WHGame.Pickpocket.StealTransfer": {
+          "method": "slot",
+          "slot": 57,
+          "rva": "0x2d935ac",
+          "vtable": "0x3cae720"
+        },
+        "WHGame.Pickpocket.Finish": {
+          "method": "pattern",
+          "rva": "0x2f48b94"
+        },
+        "WHGame.Pickpocket.Update": {
+          "method": "slot",
+          "slot": 19,
+          "rva": "0x2f4d100",
+          "vtable": "0x400eed8"
+        },
+        "WHGame.Pickpocket.CheckValid": {
+          "method": "pattern",
+          "rva": "0x2f41c40"
+        },
         "WHGame.I_UIGameOver.Show": {
           "method": "pattern",
           "rva": "0x2c544a4"
@@ -774,6 +892,30 @@
           "method": "pattern",
           "rva": "0x81b964"
         },
+        "WHGame.CombatSync.AttackStart": {
+          "method": "slot",
+          "slot": 57,
+          "rva": "0xa8e830",
+          "vtable": "0x3b1fc58"
+        },
+        "WHGame.CombatSync.TransitionStart": {
+          "method": "slot",
+          "slot": 57,
+          "rva": "0xa8f0cc",
+          "vtable": "0x3b31698"
+        },
+        "WHGame.CombatTriggerMasterStrike.CanFire": {
+          "method": "slot",
+          "slot": 18,
+          "rva": "0x8b384c",
+          "vtable": "0x3c1cbe0"
+        },
+        "WHGame.CombatTriggerMasterStrike.HasRow": {
+          "method": "slot",
+          "slot": 19,
+          "rva": "0x8b24e0",
+          "vtable": "0x3c1cbe0"
+        },
         "WHGame.CombatInput.AttackHeavy": {
           "method": "pattern",
           "rva": "0x53df594",
@@ -840,6 +982,14 @@
           "rva": "0x9dc020",
           "site": "0x9dbb0c"
         },
+        "WHGame.C_UIApseQAMInteraction.Execute": {
+          "method": "pattern",
+          "rva": "0x1841e74"
+        },
+        "WHGame.C_Item.HasOwnerSoul": {
+          "method": "pattern",
+          "rva": "0x9a87e0"
+        },
         "WHGame.C_QAMManager.Unassign": {
           "method": "pattern",
           "rva": "0x20cc150"
@@ -870,6 +1020,24 @@
           "rva": "0x3ce4d4",
           "vtable": "0x3ae4758"
         },
+        "WHGame.CLivingEntity.Step": {
+          "method": "slot",
+          "slot": 30,
+          "rva": "0x4d6c70",
+          "vtable": "0x3b1b7f8"
+        },
+        "WHGame.CLivingEntity.HitListAlloc": {
+          "method": "pattern",
+          "rva": "0x4d6f16"
+        },
+        "WHGame.CLivingEntity.HitListGrow": {
+          "method": "pattern",
+          "rva": "0x4dc361"
+        },
+        "WHGame.Physics.GetCaller": {
+          "method": "pattern",
+          "rva": "0xac8de4"
+        },
         "WHGame.CallbackAction.ShowEntity": {
           "method": "pattern",
           "rva": "0x29386f8"
@@ -877,6 +1045,10 @@
         "WHGame.CallbackAction.EntityOf": {
           "method": "pattern",
           "rva": "0x756370"
+        },
+        "WHGame.C_Reading.OnSkipTimeEnded": {
+          "method": "pattern",
+          "rva": "0x2f43558"
         },
         "WHGame.C_NPCManager.instance": {
           "method": "pattern",
@@ -1297,6 +1469,18 @@
           "rva": "0xf85284",
           "vtable": "0x3ad7938"
         },
+        "WHGame.IAnimationOperatorQueue.PushPosition": {
+          "method": "slot",
+          "slot": 8,
+          "rva": "0xe6a7ec",
+          "vtable": "0x3ad7938"
+        },
+        "WHGame.ISkeletonAnim.PushPoseModifierStack": {
+          "method": "slot",
+          "slot": 37,
+          "rva": "0x779c80",
+          "vtable": "0x3b07ed0"
+        },
         "WHGame.IAnimationOperatorQueue.PushStoreRelative": {
           "method": "slot",
           "slot": 10,
@@ -1446,6 +1630,10 @@
           "method": "pattern",
           "rva": "0x364c3cc"
         },
+        "WHGame.SkipTime.OnConfirm": {
+          "method": "pattern",
+          "rva": "0x12b2ed4"
+        },
         "WHGame.UIActionLuaCallback.Dispatch": {
           "method": "pattern",
           "rva": "0x364c154"
@@ -1462,6 +1650,114 @@
           "method": "pattern",
           "rva": "0x519a55c",
           "site": "0x1e80c90"
+        },
+        "WHGame.C_SkillXPEffect.Apply": {
+          "method": "pattern",
+          "rva": "0xc0a270"
+        },
+        "WHGame.C_StatXPEffect.Apply": {
+          "method": "pattern",
+          "rva": "0xc0a0cc"
+        },
+        "WHGame.C_SoulSkills.SetLevel": {
+          "method": "pattern",
+          "rva": "0x41bc78"
+        },
+        "WHGame.C_SoulSkills.Reaggregate": {
+          "method": "pattern",
+          "rva": "0x41bcf8"
+        },
+        "WHGame.C_SoulSkills.HasChildren": {
+          "method": "pattern",
+          "rva": "0x41bec8"
+        },
+        "WHGame.C_SoulPropertyNotifier.Notify": {
+          "method": "pattern",
+          "rva": "0x6162d4"
+        },
+        "WHGame.ChunkReader.Init": {
+          "method": "pattern",
+          "rva": "0x4a17e8"
+        },
+        "WHGame.ChunkWriter.Root": {
+          "method": "pattern",
+          "rva": "0xf6c0f8"
+        },
+        "WHGame.ChunkWriter.Finish": {
+          "method": "pattern",
+          "rva": "0xba8cb0"
+        },
+        "WHGame.C_RPGModule.instance": {
+          "method": "pattern",
+          "rva": "0x53f0820",
+          "site": "0x2045bf0"
+        },
+        "WHGame.C_RPGModule.ChunkDispatcher": {
+          "method": "pattern",
+          "rva": "0x20616e0"
+        },
+        "WHGame.C_RPGLocationManager.LoadLocations": {
+          "method": "pattern",
+          "rva": "0x15f80a8"
+        },
+        "WHGame.C_RPGLocationManager.LoadMarks": {
+          "method": "pattern",
+          "rva": "0x19bcd78"
+        },
+        "WHGame.C_RPGLocationManager.LoadTypes": {
+          "method": "pattern",
+          "rva": "0xbac184"
+        },
+        "WHGame.C_RPGLocationManager.SaveLocations": {
+          "method": "pattern",
+          "rva": "0x204e270"
+        },
+        "WHGame.C_RPGLocationManager.SaveMarks": {
+          "method": "pattern",
+          "rva": "0x204ef80"
+        },
+        "WHGame.C_RPGLocationManager.SaveTypes": {
+          "method": "pattern",
+          "rva": "0x204e340"
+        },
+        "WHGame.C_RPGLocationManager.AddListener": {
+          "method": "pattern",
+          "rva": "0xc76608"
+        },
+        "WHGame.C_RPGLocationManager.RemoveListener": {
+          "method": "pattern",
+          "rva": "0xb08fec"
+        },
+        "WHGame.Level.CurrentId": {
+          "method": "pattern",
+          "rva": "0xcfc50c"
+        },
+        "WHGame.C_RPGMinigames.LoadReading": {
+          "method": "pattern",
+          "rva": "0x1782914"
+        },
+        "WHGame.C_RPGMinigames.SaveReading": {
+          "method": "pattern",
+          "rva": "0x198c8c8"
+        },
+        "WHGame.ItemClassTable.instance": {
+          "method": "pattern",
+          "rva": "0x53e3da0",
+          "site": "0x1181df0"
+        },
+        "WHGame.ItemClassTable.Find": {
+          "method": "pattern",
+          "rva": "0x419a10",
+          "site": "0x1181df0"
+        },
+        "WHGame.C_RPGCodex.instance": {
+          "method": "pattern",
+          "rva": "0x1779544",
+          "site": "0xd52120"
+        },
+        "WHGame.C_RPGCodex.AddPerkSilent": {
+          "method": "pattern",
+          "rva": "0xd51d00"
         }
       },
       "exe": {
@@ -1472,7 +1768,7 @@
         "note": "the Game Pass KingdomCome.exe cannot be read by a user process (the package denies it); only its size is known"
       },
       "steam_buildid": null,
-      "ported_by": "tools/kcdmp-gamepass/anchor_port.py (this fork), from KCD:MP 0.35.0's steam-1.5.6-bdf8f9e4 entry"
+      "ported_by": "tools/kcdmp-gamepass/anchor_port.py (this fork), from KCD:MP 0.36.0's steam-1.5.6-bdf8f9e4 entry"
     }
   ]
 }
