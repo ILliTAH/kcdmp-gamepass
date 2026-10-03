@@ -32,7 +32,7 @@ param(
     [string] $Connect  = '',       # host:port to join at once
     [string] $Name     = '',       # the name other players see (remembered)
     [string] $Level    = '',       # trosecko | kutnohorsko | klaster; empty = asked from the server
-    [string] $KcdMpZip = '',       # KCD:MP's client zip; empty = the newest KcdMp-*-win-x64.zip in Downloads
+    [string] $KcdMpZip = '',       # KCD:MP's client zip; empty = the highest KcdMp-<version>-win-x64.zip in Downloads
     [switch] $Browse,              # list the servers and stop
     [switch] $Menu,                # pick a server here instead of in KCD:MP's window
     [switch] $NoDefender,          # do not offer the Windows Defender exclusion
@@ -75,28 +75,7 @@ if (-not (Test-Path -LiteralPath $steamShaped)) {
 }
 Write-Host "Game: $content"
 
-# --- 2. KCD:MP's files -------------------------------------------------------
-function Get-KcdMpZip {
-    if ($KcdMpZip) { return $KcdMpZip }
-    $downloads = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'Downloads'
-    $z = Get-ChildItem -LiteralPath $downloads -Filter 'KcdMp-*-win-x64.zip' -ErrorAction SilentlyContinue |
-         Sort-Object LastWriteTime -Descending | Select-Object -First 1
-    if ($z) { return $z.FullName }
-    return $null
-}
-function Expand-KcdMp {
-    $zip = Get-KcdMpZip
-    if (-not $zip -or -not (Test-Path -LiteralPath $zip)) {
-        throw "KCD:MP's client was not found. Download KcdMp-<version>-win-x64.zip from https://kcd-mp.com into your Downloads folder and run this again."
-    }
-    Write-Host "Unpacking $(Split-Path -Leaf $zip)..."
-    New-Item -ItemType Directory -Force -Path $kcdmpDir | Out-Null
-    Expand-Archive -LiteralPath $zip -DestinationPath $kcdmpDir -Force
-}
-$dll = Join-Path $kcdmpDir 'KcdMp_client.dll'
-if (-not (Test-Path -LiteralPath (Join-Path $kcdmpDir 'KcdMp_launcher.exe'))) { Expand-KcdMp }
-
-# --- 3. Windows Defender -------------------------------------------------------
+# --- 2. Windows Defender, before anything of KCD:MP is unpacked -----------------
 # Defender removes KcdMp_client.dll (it is an unsigned DLL made to be injected
 # into a game) and, once it has watched an injection, this package's injector
 # too (Behavior:Win32/DefenseEvasion.A!ml). One exclusion for this whole folder
@@ -104,7 +83,8 @@ if (-not (Test-Path -LiteralPath (Join-Path $kcdmpDir 'KcdMp_launcher.exe'))) { 
 # Whether the exclusion is there cannot be read without admin rights, so it is
 # asked for once per folder (remembered), and again whenever the DLL has gone
 # missing. Packages up to 0.35.0.1 excluded kcdmp\ only: those players are
-# asked once more.
+# asked once more. It is asked for before the first unpack: under Defender the client
+# went as it was written, and the unpack refused that zip at every start.
 $settings = Read-Settings
 function Request-Exclusion {
     Write-Host 'Windows Defender deletes KCD:MP''s client DLL and this package''s injector. Adding an exclusion for this folder (one admin prompt)...'
@@ -116,10 +96,54 @@ function Request-Exclusion {
     } catch { Write-Warning "No exclusion was added ($($_.Exception.Message)). If files keep disappearing, add $here under Windows Security > Exclusions." }
 }
 if (-not $NoDefender -and $settings.DefenderExclusionFolder -ne $here) { Request-Exclusion }
+
+# --- 3. KCD:MP's files -------------------------------------------------------
+# A newer KCD:MP in Downloads is unpacked over the old one (KcdMpUpgrade.ps1): never an older one, never while the
+# game or KCD:MP's own programs hold the files, and through kcdmp.new - swapped in only whole, so a failure keeps the old
+# install. KCD:MP's own Update button works too; either way step 4 puts our entry back.
+. (Join-Path $here 'KcdMpUpgrade.ps1')
+function Get-KcdMpZip {
+    if ($KcdMpZip) { return $KcdMpZip }
+    return Select-KcdMpZip (Join-Path ([Environment]::GetFolderPath('UserProfile')) 'Downloads')
+}
+# the first unpack, or one after Defender took the client: with nothing to keep, a failure stops the start
+function Expand-KcdMp([string] $zip) {
+    if (-not $zip -or -not (Test-Path -LiteralPath $zip)) {
+        throw "KCD:MP's client was not found. Download KcdMp-<version>-win-x64.zip from https://kcd-mp.com into your Downloads folder and run this again."
+    }
+    Write-Host "Unpacking $(Split-Path -Leaf $zip) (from 0.37 it brings a web engine: about 350 MB, a minute or two)..."
+    $result = Install-KcdMpZip $zip $kcdmpDir
+    if ($result -ne $true -and "$result" -like '*Windows Defender*' -and -not $NoDefender) {
+        Request-Exclusion   # remembered, but not there (removed since, or the admin window failed): asked again, once
+        $result = Install-KcdMpZip $zip $kcdmpDir
+    }
+    if ($result -ne $true) { throw "KCD:MP could not be unpacked: $result" }
+}
+$dll = Join-Path $kcdmpDir 'KcdMp_client.dll'
+if (Repair-KcdMpSwap $kcdmpDir) { Write-Host 'An unpack was cut short last time: it is finished now.' }
+$zip = Get-KcdMpZip
+$offered = if ($zip) { Get-KcdMpZipVersion $zip } else { $null }
+$have = Get-KcdMpUnpackedVersion $kcdmpDir
+switch (Get-KcdMpUnpackDecision $offered $have (Test-Path -LiteralPath (Join-Path $kcdmpDir 'KcdMp_launcher.exe')) (Test-KcdMpBusy $kcdmpDir)) {
+    'unpack'  { Expand-KcdMp $zip }
+    'upgrade' {
+        Write-Host "KCD:MP $offered found ($(Split-Path -Leaf $zip)); this package had $have. Moving to it (about 350 MB, a minute or two)..."
+        $result = Install-KcdMpZip $zip $kcdmpDir
+        if ($result -eq $true) { Write-Host "KCD:MP is $offered now." }
+        else { Write-Warning "KCD:MP stays $have - $result. Close the game and KCD:MP's window and start this again, or download the zip again if it is broken." }
+    }
+    'busy'    { Write-Warning "KCD:MP $offered found ($(Split-Path -Leaf $zip)), but the game or KCD:MP's window is open: close them and start this again to move from $have." }
+}
+
 if (-not (Test-Path -LiteralPath $dll)) {
     Write-Host 'KcdMp_client.dll is missing (Defender took it).'
     if (-not $NoDefender) { Request-Exclusion }
-    Expand-KcdMp
+    if (Test-KcdMpBusy $kcdmpDir) { throw "KcdMp_client.dll is gone, and the game or KCD:MP's window is open: close them and start this again." }
+    $have = Get-KcdMpUnpackedVersion $kcdmpDir
+    if ($have -and $offered -and $offered -lt $have) {   # never an older KCD:MP than the one here
+        throw "KcdMp_client.dll is gone, and the zip in Downloads ($offered) is older than KCD:MP here ($have). Give the DLL back in Windows Security > Virus & threat protection > Protection history (the entry for it > Actions > Allow on device), or download KCD:MP $have again, then start this again."
+    }
+    Expand-KcdMp $zip
     if (-not (Test-Path -LiteralPath $dll)) { throw "KcdMp_client.dll is removed as soon as it is unpacked. Restore it in Windows Security > Protection history and exclude $here." }
 }
 # The installer put the injector here; only Defender takes it away, and only the player can give it back.

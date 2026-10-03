@@ -3,14 +3,14 @@
 #   powershell -ExecutionPolicy Bypass -File Build-Installer.ps1
 param(
     # The KCD:MP version the build entry was made for, then this package's revision.
-    [string] $Version = '0.36.0.1'
+    [string] $Version = '0.37.0.1'
 )
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
 $out = Join-Path $root 'release\payload'
 if (Test-Path $out) { Remove-Item $out -Recurse -Force }
 New-Item -ItemType Directory -Force -Path $out | Out-Null
-Copy-Item (Join-Path $root 'KcdMpGamePass.ps1'), (Join-Path $root 'KcdMpGamePass.bat'), (Join-Path $root 'KcdmpCommon.ps1'),
+Copy-Item (Join-Path $root 'KcdMpGamePass.ps1'), (Join-Path $root 'KcdMpGamePass.bat'), (Join-Path $root 'KcdmpCommon.ps1'), (Join-Path $root 'KcdMpUpgrade.ps1'),
           (Join-Path $root 'README.md'), (Join-Path $root 'gamepass-1.5.6-74126a4c.json'), (Join-Path $root 'anchor_port.py') $out
 Copy-Item (Join-Path $root 'bin\KCDMP_LauncherInjector.exe'), (Join-Path $root 'bin\app.ico') $out
 Copy-Item (Join-Path $root 'LICENSE') (Join-Path $out 'LICENSE.txt')

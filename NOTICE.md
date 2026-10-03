@@ -1,15 +1,15 @@
 # What is in here, and whose it is
 
-- `KcdMpGamePass.ps1`, `KcdMpGamePass.bat`, `anchor_port.py`, `installer/KcdMpGamePass.iss`,
-  `Build-Installer.ps1`, `README.md` — this project. GPLv3 (`LICENSE`).
+- `KcdMpGamePass.ps1`, `KcdMpGamePass.bat`, `KcdMpUpgrade.ps1`, `anchor_port.py`, `installer/KcdMpGamePass.iss`,
+  `Build-Installer.ps1`, `tests/`, `README.md` — this project. GPLv3 (`LICENSE`).
 - `KcdmpCommon.ps1`, `bin/KCDMP_LauncherInjector.exe`, `bin/app.ico` — from the
   Kingdom Come: Co-op fork of Kingdom Come: Together (GPLv3):
   https://github.com/ILliTAH/KingdomCome-Together (branch `hostworld`). The
   injector is built there from `native/KCDMP_LauncherInjector` with Visual
   Studio 2019.
-- `gamepass-1.5.6-74126a4c.json` — 352 addresses in the Xbox Game Pass build
+- `gamepass-1.5.6-74126a4c.json` — 355 addresses in the Xbox Game Pass build
   of Kingdom Come: Deliverance II (v1.5.6, WHGame.dll sha256 `74126a4c…`),
-  derived by `anchor_port.py` from the Steam entry in KCD:MP 0.36.0's
+  derived by `anchor_port.py` from the Steam entry in KCD:MP 0.37.0's
   `builds.json`. The anchor *names* are KCD:MP's; the addresses were computed
   here.
 - Not included, by design: any file of KCD:MP (kcd-mp.com; the player

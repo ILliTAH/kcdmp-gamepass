@@ -1758,6 +1758,24 @@
         "WHGame.C_RPGCodex.AddPerkSilent": {
           "method": "pattern",
           "rva": "0xd51d00"
+        },
+        "WHGame.IHardwareMouse.IncrementCounter": {
+          "method": "string_slot",
+          "slot": 11,
+          "rva": "0x9da330",
+          "vtable": "0x3af0708"
+        },
+        "WHGame.IHardwareMouse.DecrementCounter": {
+          "method": "string_slot",
+          "slot": 12,
+          "rva": "0x9da3f8",
+          "vtable": "0x3af0708"
+        },
+        "WHGame.IHardwareMouse.ConfineCursor": {
+          "method": "string_slot",
+          "slot": 25,
+          "rva": "0x9da688",
+          "vtable": "0x3af0708"
         }
       },
       "exe": {
@@ -1768,7 +1786,7 @@
         "note": "the Game Pass KingdomCome.exe cannot be read by a user process (the package denies it); only its size is known"
       },
       "steam_buildid": null,
-      "ported_by": "tools/kcdmp-gamepass/anchor_port.py (this fork), from KCD:MP 0.36.0's steam-1.5.6-bdf8f9e4 entry"
+      "ported_by": "tools/kcdmp-gamepass/anchor_port.py (this fork), from KCD:MP 0.37.0's steam-1.5.6-bdf8f9e4 entry"
     }
   ]
 }
