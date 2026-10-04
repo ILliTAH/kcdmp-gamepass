@@ -1786,7 +1786,7 @@
         "note": "the Game Pass KingdomCome.exe cannot be read by a user process (the package denies it); only its size is known"
       },
       "steam_buildid": null,
-      "ported_by": "tools/kcdmp-gamepass/anchor_port.py (this fork), from KCD:MP 0.37.0's steam-1.5.6-bdf8f9e4 entry"
+      "ported_by": "tools/kcdmp-gamepass/anchor_port.py (this fork), from KCD:MP 0.38.0's steam-1.5.6-bdf8f9e4 entry"
     }
   ]
 }

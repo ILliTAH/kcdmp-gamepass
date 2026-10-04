@@ -1,8 +1,8 @@
 # KCD:MP on Xbox Game Pass
 
-**English.** [KCD:MP](https://kcd-mp.com) is a third party's multiplayer mod for Kingdom Come: Deliverance II — a dedicated server, its own game modes, a server browser — closed source and **Steam only**. This package makes its 0.37.0 client run on the **Xbox Game Pass** build of the game without touching any file of theirs: a build-table entry for the Game Pass `WHGame.dll` (355 addresses ported from their Steam entry by `anchor_port.py`), a Steam-shaped junction inside the game folder, and a launcher that injects their client into the re-launched game process in time — from KCD:MP's own window, from a console menu, or with `-Connect host:port`. Steam friends keep using KCD:MP as they do; Game Pass friends run this installer and join the same servers.
+**English.** [KCD:MP](https://kcd-mp.com) is a third party's multiplayer mod for Kingdom Come: Deliverance II — a dedicated server, its own game modes, a server browser — closed source and **Steam only**. This package makes its 0.38.0 client run on the **Xbox Game Pass** build of the game without touching any file of theirs: a build-table entry for the Game Pass `WHGame.dll` (355 addresses ported from their Steam entry by `anchor_port.py`), a Steam-shaped junction inside the game folder, and a launcher that injects their client into the re-launched game process in time — from KCD:MP's own window, from a console menu, or with `-Connect host:port`. Steam friends keep using KCD:MP as they do; Game Pass friends run this installer and join the same servers.
 
-Not the same thing as **[Kingdom Come: Co-op](https://github.com/ILliTAH/KingdomCome-Together)** (a fork of Kingdom Come: Together): that one is co-op *inside your own story save* with friends who run Together/KCDMP 0.18.2; this one is KCD:MP's *dedicated-server multiplayer on an empty map*. The two networks cannot see each other — pick the one your friends are on (table below, in Thai). Tested: one Game Pass player on a private freeroam server (trosecko), both from KCD:MP's window and from `-Connect` (0.35.0); one Game Pass player on a public RP server (kutnohorsko) with 0.36.0 — 352 anchors, third person, combat tables 9/9, progression. 0.37.0 (web interfaces with a mouse pointer, drawn by a Chromium engine in `kcdmp\cef\`): the table ported 355/355 — the 352 of 0.36.0 land where they did, plus the 3 of the mouse pointer — and tested in game: one Game Pass player on a public RP server (kutnohorsko), 355 anchors, the mouse pointer's anchors verified, the Chromium engine up inside the Game Pass game, the server's web pages drawn and used with the mouse and the keyboard. A newer `KcdMp-*-win-x64.zip` in Downloads replaces the old KCD:MP by itself (never an older one, never while the game runs; unpacked beside it and swapped in only whole, so a broken zip keeps the old one); KCD:MP's own Update button works too. Off on Game Pass because the KCD:MP client enables them for its verified Steam build only: discovery tracking, and item origin (items the game makes itself reach the server as `unmapped`, which matters under `[audit] mode = "enforce"`). Untested: more than one player at once, mixed Steam + Game Pass on one server, actual fights, voice, the klaster level.
+Not the same thing as **[Kingdom Come: Co-op](https://github.com/ILliTAH/KingdomCome-Together)** (a fork of Kingdom Come: Together): that one is co-op *inside your own story save* with friends who run Together/KCDMP 0.18.2; this one is KCD:MP's *dedicated-server multiplayer on an empty map*. The two networks cannot see each other — pick the one your friends are on (table below, in Thai). Tested: one Game Pass player on a private freeroam server (trosecko), both from KCD:MP's window and from `-Connect` (0.35.0); one Game Pass player on a public RP server (kutnohorsko) with 0.36.0 — 352 anchors, third person, combat tables 9/9, progression. 0.37.0 (web interfaces with a mouse pointer, drawn by a Chromium engine in `kcdmp\cef\`): the table ported 355/355 — the 352 of 0.36.0 land where they did, plus the 3 of the mouse pointer — and tested in game: one Game Pass player on a public RP server (kutnohorsko), 355 anchors, the mouse pointer's anchors verified, the Chromium engine up inside the Game Pass game, the server's web pages drawn and used with the mouse and the keyboard. 0.38.0 (voice levels, server screens drawn inside the game): KCD:MP's Steam entry is the same as 0.37.0's - 355 anchors, every one at the same address - and the port run again gives the same table; not yet tested in game with 0.38.0. A newer `KcdMp-*-win-x64.zip` in Downloads replaces the old KCD:MP by itself (never an older one, never while the game runs; unpacked beside it and swapped in only whole, so a broken zip keeps the old one); KCD:MP's own Update button works too. Off on Game Pass because the KCD:MP client enables them for its verified Steam build only: discovery tracking, and item origin (items the game makes itself reach the server as `unmapped`, which matters under `[audit] mode = "enforce"`). Untested: more than one player at once, mixed Steam + Game Pass on one server, actual fights, voice, the klaster level.
 
 Player download: the installer on the [Releases](https://github.com/ILliTAH/kcdmp-gamepass/releases) page. Build it yourself: `powershell -ExecutionPolicy Bypass -File Build-Installer.ps1` (Inno Setup 6). See `NOTICE.md` for what is whose; GPLv3.
 
@@ -40,14 +40,14 @@ Player download: the installer on the [Releases](https://github.com/ILliTAH/kcdm
 ## ต้องมีอะไร
 
 - Windows 10/11 และ **Kingdom Come: Deliverance II จาก Xbox app / PC Game Pass เวอร์ชัน 1.5.6.0** (ตัวเปิดตรวจ `WHGame.dll` ให้ — ต้องเป็น sha256 `74126a4c…`; ถ้าเกมอัปเดต ต้องรอตารางชุดใหม่ ดู "ข้อจำกัด")
-- **KCD:MP client 0.37.0** — `KcdMp-0.37.0-win-x64.zip` (ราว 161 MB เพราะมีเครื่องมือวาดหน้าเว็บในเกม) จาก https://kcd-mp.com (ดาวน์โหลดเอง ชุดนี้ไม่แจกไฟล์ของเขา)
+- **KCD:MP client 0.38.0** — `KcdMp-0.38.0-win-x64.zip` (ราว 161 MB เพราะมีเครื่องมือวาดหน้าเว็บในเกม) จาก https://kcd-mp.com (ดาวน์โหลดเอง ชุดนี้ไม่แจกไฟล์ของเขา)
 - สิทธิ์ admin **หนึ่งครั้ง** ตอนตั้งค่าครั้งแรก (ยกเว้น Windows Defender) — ที่เหลือไม่ต้อง
 - ไม่ต้องมี Steam, ไม่ต้องมี Modding Tools, ไม่ต้องมี Python
 
 ## ติดตั้ง
 
-1. ดาวน์โหลด `KcdMp-0.37.0-win-x64.zip` จาก https://kcd-mp.com ไว้ในโฟลเดอร์ **Downloads** (ไม่ต้องแตก)
-2. ดาวน์โหลด **`KcdMp-GamePass-Setup-0.37.0.1.exe`** จากหน้า [Releases](https://github.com/ILliTAH/kcdmp-gamepass/releases) แล้วรัน
+1. ดาวน์โหลด `KcdMp-0.38.0-win-x64.zip` จาก https://kcd-mp.com ไว้ในโฟลเดอร์ **Downloads** (ไม่ต้องแตก)
+2. ดาวน์โหลด **`KcdMp-GamePass-Setup-0.38.0.1.exe`** จากหน้า [Releases](https://github.com/ILliTAH/kcdmp-gamepass/releases) แล้วรัน
    (SmartScreen อาจเตือนเพราะไม่ได้เซ็นชื่อ → More info → Run anyway) ติดตั้งลง `%LOCALAPPDATA%\KcdMp-GamePass` ไม่ต้องใช้ admin
 3. เปิด **KCD MP for Game Pass** จากไอคอนบนเดสก์ท็อป — ครั้งแรกมันจะทำตามลำดับนี้ (หน้าต่างคำสั่งสีดำบอกทุกขั้น):
    1. หาเกม Game Pass ในเครื่องเอง แล้วสร้างโฟลเดอร์ `Bin\Win64MasterMasterSteamPGO` (junction ชี้กลับมาที่โฟลเดอร์เกม) — เป็นโฟลเดอร์ที่ launcher ของ KCD:MP หา
@@ -108,30 +108,31 @@ KcdMpGamePass.bat -Connect 203.0.113.5:7777 -Name "Henry" -Level kutnohorsko
 
 เซิร์ฟเวอร์เป็นโปรแกรมแยกของ KCD:MP (ไม่ใช่ของชุดนี้) เปิดที่เครื่องใครก็ได้ ไม่ต้องมีเกมหรือ Steam บนเครื่องนั้น:
 
-1. ดาวน์โหลด `KcdMp-server-0.37.0.zip` จาก https://kcd-mp.com แล้วแตก → รัน `windows\KcdMp.Server.exe` หนึ่งครั้ง (มันสร้าง `server.toml` จาก `server.toml.example`)
+1. ดาวน์โหลด `KcdMp-server-0.38.0.zip` จาก https://kcd-mp.com แล้วแตก → รัน `windows\KcdMp.Server.exe` หนึ่งครั้ง (มันสร้าง `server.toml` จาก `server.toml.example`)
 2. แก้ `server.toml` ในส่วน `[server]`: `name`, `port = 7777`, `password` (`""` = เปิด), `level = "trosecko"` (หรือ `kutnohorsko` / `klaster`), `max_players`
    - เซิร์ฟเวอร์**ส่วนตัว**ที่ไม่อยากให้โผล่ในรายการสาธารณะ: `[master]` → `url = ""`
 3. เปิดพอร์ต **7777 ทั้ง TCP และ UDP** ในไฟร์วอลล์และ router (หน้าสถานะ `http://<ip>:7777/` เป็น TCP บนพอร์ตเดียวกัน — ตัวเปิดชุดนี้ใช้อ่านด่านและจำนวนคน)
 4. เพื่อน Steam: direct connect `ip:7777` ในหน้าต่าง KCD:MP ตามปกติ / เพื่อน Game Pass: `-Connect ip:7777` หรือพิมพ์ในทาง B หรือ direct connect ในทาง A
 
-ทุกคนต้องใช้ KCD:MP **เวอร์ชันเดียวกับเซิร์ฟเวอร์** (ชุดนี้ = 0.37.0) คู่มือเซิร์ฟเวอร์ฉบับเต็ม: https://docs.kcd-mp.com/getting-started/server-config/
+ทุกคนต้องใช้ KCD:MP **เวอร์ชันเดียวกับเซิร์ฟเวอร์** (ชุดนี้ = 0.38.0) คู่มือเซิร์ฟเวอร์ฉบับเต็ม: https://docs.kcd-mp.com/getting-started/server-config/
 Steam กับ Game Pass บนเซิร์ฟเวอร์เดียวกันน่าจะเล่นด้วยกันได้ (client ตัวเดียวกัน โปรโตคอลเดียวกัน) แต่**ยังไม่ได้ทดสอบจริง** — ถ้าลองแล้วเป็นอย่างไร ช่วยเปิด issue บอกด้วย
 
 ## ข้อจำกัดที่ต้องรู้
 
-- ใช้กับ **KCD:MP 0.37.0** และเกม Game Pass **1.5.6.0** (WHGame.dll `74126a4c…`) เท่านั้น — ถ้าเกมอัปเดตหรือ KCD:MP ออกเวอร์ชันใหม่ ต้องรอตารางชุดใหม่
+- ใช้กับ **KCD:MP 0.38.0** และเกม Game Pass **1.5.6.0** (WHGame.dll `74126a4c…`) เท่านั้น — ถ้าเกมอัปเดตหรือ KCD:MP ออกเวอร์ชันใหม่ ต้องรอตารางชุดใหม่
   (ตัวเปิดจะบอกเองว่า build ไม่ตรง หรือ KCD:MP ใหม่กว่าชุดนี้ และจะปิดฟีเจอร์ที่ไม่มีที่อยู่แทนที่จะพัง)
 - **ปุ่ม Update ในหน้าต่างของ KCD:MP**: อัปเดตไฟล์ของ KCD:MP ได้ แต่หลังอัปเดตหน้าต่างนั้นเปิดตัวเองใหม่*โดยไม่มีชุดนี้* จึงขึ้นว่า "Kingdom Come: Deliverance II was not found" → ปิดมัน แล้วเปิด **KCD MP for Game Pass** ใหม่ (ชุดนี้ใส่ตาราง Game Pass กลับเข้า `builds.json` ทุกครั้งที่เปิด)
   ถ้า KCD:MP ใหม่กว่าชุดนี้ มันจะเตือนว่าที่อยู่ไม่ครบ → รอ release ใหม่ของชุดนี้ก่อน
-- **อัปเกรดจากชุด 0.36.0.1 (หรือเก่ากว่า)**: วาง `KcdMp-0.37.0-win-x64.zip` ไว้ใน Downloads → ลงตัวติดตั้ง 0.37.0.1 ทับ → เปิด KCD MP for Game Pass: มันแตก KCD:MP ตัวใหม่ลงโฟลเดอร์ข้าง ๆ แล้วสลับเข้าแทนตัวเก่าเมื่อแตกครบเท่านั้น (ราว 1-2 นาที; เซิร์ฟเวอร์ที่เราเพิ่มเองใน `servers.txt` ยังอยู่)
+- **อัปเกรดจากชุด 0.37.0.1 (หรือเก่ากว่า)**: วาง `KcdMp-0.38.0-win-x64.zip` ไว้ใน Downloads → ลงตัวติดตั้ง 0.38.0.1 ทับ → เปิด KCD MP for Game Pass: มันแตก KCD:MP ตัวใหม่ลงโฟลเดอร์ข้าง ๆ แล้วสลับเข้าแทนตัวเก่าเมื่อแตกครบเท่านั้น (ราว 1-2 นาที; เซิร์ฟเวอร์ที่เราเพิ่มเองใน `servers.txt` ยังอยู่)
   หรือกด Update ในหน้าต่าง KCD:MP ก็ได้ (แบบด้านบน) — ชุดนี้ใส่ตาราง Game Pass ตัวใหม่ให้ทุกครั้งที่เปิด
   ชุดนี้ไม่แตก zip ที่เก่ากว่าตัวที่มีอยู่ และไม่แตกตอนเกมหรือหน้าต่าง KCD:MP เปิดอยู่ (มันเตือนให้ปิดแล้วเปิดชุดนี้ใหม่) ถ้าแตกไม่ผ่าน (zip เสีย ดิสก์เต็ม ไฟล์ถูกใช้อยู่) KCD:MP ตัวเก่ายังอยู่ครบ และมันบอกว่าเพราะอะไร
   ทางสุดท้ายถ้ายังมีปัญหา: ปิดเกมและหน้าต่าง KCD:MP ลบโฟลเดอร์ `kcdmp\` `kcdmp.old` และ `kcdmp.new` (ถ้ามี) ในโฟลเดอร์ติดตั้ง แล้วเปิดชุดนี้ใหม่ (มันแตก zip ให้ใหม่ทั้งหมด)
 - ทดสอบแล้ว: ผู้เล่น Game Pass **หนึ่งคน** บนเซิร์ฟเวอร์ส่วนตัว (freeroam, ด่าน trosecko) เข้าได้ เดินได้ปกติ ทั้งจากหน้าต่าง KCD:MP และจาก `-Connect`; client รายงาน "build gamepass-1.5.6-74126a4c (supported), 287 anchors" และช่องที่มันตรวจสอบเองตรงทุกช่อง (KCD:MP 0.35.0)
   0.36.0: ตาราง 352 จุด ย้ายได้ครบ 352/352 (287 จุดเดิมได้ที่อยู่เดียวกับชุด 0.35 ทุกจุด) — ทดสอบแล้ว: ผู้เล่น Game Pass หนึ่งคนเข้าเซิร์ฟเวอร์ RP สาธารณะ (ด่าน kutnohorsko) ได้; client รายงาน "build gamepass-1.5.6-74126a4c (supported), 352 anchors", gEnv ตรง, กล้องบุคคลที่สามเจอที่อยู่ครบ, ตารางท่าต่อสู้ 9/9, ระบบ XP/ทักษะของ 0.36 ทำงาน
   0.37.0: ตาราง 355 จุด ย้ายได้ครบ 355/355 (352 จุดของ 0.36.0 ได้ที่อยู่เดิมทุกจุด + 3 จุดของเมาส์ในหน้าเว็บ) — ทดสอบแล้ว: ผู้เล่น Game Pass หนึ่งคนเข้าเซิร์ฟเวอร์ RP สาธารณะ (ด่าน kutnohorsko) ได้; client รายงาน "build gamepass-1.5.6-74126a4c (supported), 355 anchors", ที่อยู่ของเมาส์ตรวจผ่าน, Chromium (CEF 154) ที่ client เปิดจากโฟลเดอร์ `kcdmp\cef\` ทำงานในเกม Game Pass ได้ และหน้าเว็บของเซิร์ฟเวอร์ขึ้น ใช้เมาส์และคีย์บอร์ดได้
+  0.38.0: ตาราง Steam ของ KCD:MP เหมือน 0.37.0 ทุกจุด (355 จุด ที่อยู่เดิมทุกจุด) — ย้ายใหม่ด้วย `anchor_port.py` ได้ครบ 355/355 และได้ตารางเดิมทุกค่า (gEnv 29/29 ตรง); **ยังไม่ได้ทดสอบในเกมกับ 0.38.0**
   **ยังไม่ได้ทดสอบ**: หลายคนพร้อมกัน, Steam + Game Pass ในเซิร์ฟเวอร์เดียว, ด่าน klaster, เสียง, การต่อสู้จริง — ฟีเจอร์ของ KCD:MP ทำงานผ่านที่อยู่ที่ย้ายมา (0.36.0: 352 จุด) ถ้าจุดไหนไม่ตรง ฟีเจอร์นั้นจะปิดตัวเองและเขียนไว้ใน `%LOCALAPPDATA%\KcdMp\client.log` (0.37.0: 355 จุด)
-- **สองอย่างของ KCD:MP 0.36 / 0.37 ที่ client เปิดให้เฉพาะ build Steam** (ตัดสินใน `KcdMp_client.dll` เอง ตารางของชุดนี้ช่วยไม่ได้):
+- **สองอย่างของ KCD:MP 0.36 / 0.37 / 0.38 ที่ client เปิดให้เฉพาะ build Steam** (ตัดสินใน `KcdMp_client.dll` เอง ตารางของชุดนี้ช่วยไม่ได้):
   - **discovery** (สถานที่ที่ค้นพบ / หนังสือที่อ่าน ที่เซิร์ฟเวอร์เก็บให้): ปิด — `client.log` ขึ้น `discovery: OFF - game build 'gamepass-…' is not one the stores were verified on`
   - **item origin** (ตารางว่าโค้ดส่วนไหนของเกมสร้างไอเท็ม) มีแค่ของ Steam → ไอเท็มที่เกมสร้างเองบน Game Pass ไปถึงเซิร์ฟเวอร์เป็น `unmapped` ทั้งหมด บนเซิร์ฟเวอร์ที่ตั้ง `[audit] mode = "enforce"` ของที่คราฟต์ ทำอาหาร ชำแหละ จะถูกตัดสินด้วยเพดานมูลค่าที่แคบกว่าของผู้เล่น Steam และอาวุธ/เกราะ/กระสุน/เงินที่เกมสร้างเองจะถูกเอาออก เว้นแต่โหมดเกมรับไว้ (`OnPlayerNativeItem`) — ในโหมด `observe` (ค่าเริ่มต้น) แค่บันทึก ไม่เอาอะไรออก
 - เกมเปิดผ่านชุดนี้จะส่ง crash report ให้ทีม KCD:MP เหมือน launcher ของเขา (`-KcdMp_reports 1`) — รายงานเหล่านั้นจะบอก build เป็น `gamepass-…`
@@ -147,7 +148,7 @@ Steam กับ Game Pass บนเซิร์ฟเวอร์เดียว
 | "KCDMP_LauncherInjector.exe is gone" | Defender ลบตัวฉีด (`Behavior:Win32/DefenseEvasion.A!ml` — มันจับจากการที่ตัวฉีดใส่ DLL เข้าเกม) → Windows Security → Virus & threat protection → Protection history → รายการของไฟล์นั้น → Actions → **Allow on device** (หรือลงตัวติดตั้งใหม่) แล้วเปิดชุดนี้ใหม่ กด Yes ที่ UAC ให้มันยกเว้นโฟลเดอร์ |
 | เกมเปิดเป็นเมนูหลัก ทั้งที่ DLL อยู่ | หน้าต่างคำสั่งสีดำถูกปิดก่อนเกมเปิด (ทาง A) → เปิดชุดนี้ใหม่ ปล่อยหน้าต่างดำไว้ |
 | "WHGame.dll … does not match" / "unknown game build" | เกม Game Pass อัปเดตแล้ว ตารางชุดนี้ใช้กับ 1.5.6.0 เท่านั้น → รอ release ใหม่ (หรือย้ายตารางเองด้วย `anchor_port.py` ด้านล่าง) |
-| "KCD:MP is newer than the package" / "wants N anchor(s) this package does not have" | KCD:MP ใหม่กว่า 0.37.0 → รอ release ใหม่ของชุดนี้ |
+| "KCD:MP is newer than the package" / "wants N anchor(s) this package does not have" | KCD:MP ใหม่กว่า 0.38.0 → รอ release ใหม่ของชุดนี้ |
 | "KCD:MP 0.x found (…), but the game or KCD:MP's window is open" | ปิดเกมและหน้าต่าง KCD:MP แล้วเปิดชุดนี้ใหม่ มันจะแตกตัวใหม่ให้ |
 | "KCD:MP stays 0.x - …" | อัปเกรดไม่ผ่าน ตัวเก่ายังใช้ได้ตามเดิม: ปิดเกมและหน้าต่าง KCD:MP แล้วเปิดใหม่ ถ้าบอกว่า zip เสียให้ดาวน์โหลดใหม่ (ทางสุดท้าย: ลบโฟลเดอร์ `kcdmp\` `kcdmp.old` และ `kcdmp.new` ในโฟลเดอร์ติดตั้ง แล้วเปิดชุดนี้ใหม่) |
 | หน้าต่าง KCD:MP ขึ้น "Kingdom Come: Deliverance II was not found" | หน้าต่างนั้นถูกเปิดเอง ไม่ผ่านชุดนี้ (เช่น หลังกด Update มันเปิดตัวเองใหม่) → ปิดมัน แล้วเปิด **KCD MP for Game Pass** จากไอคอน — อย่าตั้ง Game folder ใน Settings ของ KCD:MP เอง เกมที่มันเปิดตรง ๆ จะไม่มี client |

@@ -163,16 +163,16 @@ try {
     Check 'nothing to repair: nothing done' (Repair-KcdMpSwap $k) 'False'
 } finally { Remove-Item -LiteralPath $work -Recurse -Force }
 
-# --- the Game Pass build entry: KCD:MP 0.37.0's anchors -------------------------
+# --- the Game Pass build entry: KCD:MP 0.38.0's anchors (the same 355 as 0.37.0's) -------------------------
 $entry = (Get-Content -LiteralPath (Join-Path $root 'gamepass-1.5.6-74126a4c.json') -Raw | ConvertFrom-Json).builds[0]
 Check 'the entry is the Game Pass build' "$($entry.id) $($entry.store)" 'gamepass-1.5.6-74126a4c gamepass'
 Check 'for the Game Pass WHGame.dll' $entry.whgame.sha256 '74126a4c88e819a2a2d046a2011f69ede0335833fef25c28b660ef953abb2e8d'
 Check 'the hand-kept fields stay' "$($entry.whgame.pdb_guid)/$($entry.whgame.pdb_age)/$([bool]$entry.exe.note)" '1BE3EC0F2EED4095A3A779B272F03C93/2/True'
-Check 'all of 0.37.0 Steam entry''s anchors' @($entry.resolved.PSObject.Properties).Count 355
+Check 'all of 0.38.0 Steam entry''s anchors' @($entry.resolved.PSObject.Properties).Count 355
 Check 'the mouse pointer''s three' @('IncrementCounter', 'DecrementCounter', 'ConfineCursor' |
     Where-Object { $entry.resolved.PSObject.Properties["WHGame.IHardwareMouse.$_"] }).Count 3
-Check 'ported from 0.37.0' ($entry.ported_by -like "*KCD:MP 0.37.0's steam-1.5.6-bdf8f9e4 entry") 'True'
+Check 'ported from 0.38.0' ($entry.ported_by -like "*KCD:MP 0.38.0's steam-1.5.6-bdf8f9e4 entry") 'True'
 
 if ($script:fails) { Write-Host "$($script:fails) failed"; exit 1 }
-Write-Host 'PASS: the upgrade rules, the unpack and the 0.37.0 entry'
+Write-Host 'PASS: the upgrade rules, the unpack and the 0.38.0 entry'
 exit 0
