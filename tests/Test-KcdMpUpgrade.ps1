@@ -183,6 +183,11 @@ $rel = @{ assets = @(
     @{ name = 'KcdMp-server-0.40.0.zip'; browser_download_url = 'https://x/server' },
     @{ name = 'KcdMp-0.40.0-win-x64.zip'; browser_download_url = 'https://x/zip' },
     @{ name = 'KcdMp-0.40.0-win-x64.zip.sha256'; browser_download_url = 'https://x/sha' }) } | ConvertTo-Json -Depth 4
+# GitHub serves a release's .sha256 as application/octet-stream: PowerShell 5's Invoke-WebRequest then gives its Content
+# as bytes, not text (0.39.1.1's first live run read it as numbers and refused every download)
+function Invoke-WebRequest { [pscustomobject]@{ Content = [Text.Encoding]::ASCII.GetBytes('abc123  KcdMp-0.40.0-win-x64.zip') } }
+Check 'a text file served as bytes is read as text' (Get-KcdMpWebText 'https://x/sha') 'abc123  KcdMp-0.40.0-win-x64.zip'
+Remove-Item Function:\Invoke-WebRequest
 $latest = Get-KcdMpLatestRelease { param($u) $rel }
 Check 'the newest client, not the server zip' "$($latest.Version) $($latest.Name) $($latest.Url)" '0.40.0 KcdMp-0.40.0-win-x64.zip https://x/zip'
 Check 'offline: nothing' ([bool](Get-KcdMpLatestRelease { param($u) throw 'no network' })) 'False'

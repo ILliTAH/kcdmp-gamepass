@@ -152,7 +152,10 @@ $GamePassTableBase = 'https://raw.githubusercontent.com/ILliTAH/kcdmp-gamepass/m
 function Enable-KcdMpTls { [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12 }
 function Get-KcdMpWebText([string] $url) {
     Enable-KcdMpTls
-    return (Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 10 -Headers @{ 'User-Agent' = 'kcdmp-gamepass' }).Content
+    $content = (Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 10 -Headers @{ 'User-Agent' = 'kcdmp-gamepass' }).Content
+    # a file GitHub serves as application/octet-stream (a release's .sha256) comes as bytes in PowerShell 5
+    if ($content -is [byte[]]) { return [Text.Encoding]::UTF8.GetString($content) }
+    return $content
 }
 function Save-KcdMpWebFile([string] $url, [string] $path) {
     Enable-KcdMpTls
