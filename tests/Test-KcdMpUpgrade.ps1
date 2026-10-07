@@ -163,16 +163,71 @@ try {
     Check 'nothing to repair: nothing done' (Repair-KcdMpSwap $k) 'False'
 } finally { Remove-Item -LiteralPath $work -Recurse -Force }
 
-# --- the Game Pass build entry: KCD:MP 0.38.0's anchors (the same 355 as 0.37.0's) -------------------------
+# --- the Game Pass build entry: KCD:MP 0.39.1's anchors (0.38.0's 355, 0.39.0's 11 and 0.39.1's AssignText) ------
 $entry = (Get-Content -LiteralPath (Join-Path $root 'gamepass-1.5.6-74126a4c.json') -Raw | ConvertFrom-Json).builds[0]
 Check 'the entry is the Game Pass build' "$($entry.id) $($entry.store)" 'gamepass-1.5.6-74126a4c gamepass'
 Check 'for the Game Pass WHGame.dll' $entry.whgame.sha256 '74126a4c88e819a2a2d046a2011f69ede0335833fef25c28b660ef953abb2e8d'
 Check 'the hand-kept fields stay' "$($entry.whgame.pdb_guid)/$($entry.whgame.pdb_age)/$([bool]$entry.exe.note)" '1BE3EC0F2EED4095A3A779B272F03C93/2/True'
-Check 'all of 0.38.0 Steam entry''s anchors' @($entry.resolved.PSObject.Properties).Count 355
+Check 'all of 0.39.1 Steam entry''s anchors' @($entry.resolved.PSObject.Properties).Count 367
 Check 'the mouse pointer''s three' @('IncrementCounter', 'DecrementCounter', 'ConfineCursor' |
     Where-Object { $entry.resolved.PSObject.Properties["WHGame.IHardwareMouse.$_"] }).Count 3
-Check 'ported from 0.38.0' ($entry.ported_by -like "*KCD:MP 0.38.0's steam-1.5.6-bdf8f9e4 entry") 'True'
+Check 'the 0.39.0 eleven: item health, the carried hand, the item tooltips, books' @('C_Item.SetItemHealth', 'C_Item.GetMaxHealth',
+    'C_Item.GetMinHealth', 'C_ItemAttachmentManager.ClearHand', 'I_ActorAction.End', 'C_UIInventoryBase.ShowItemInfo',
+    'C_UIInventoryBase.SetInfoArray', 'UIElement.SetInfoVector', 'C_UIBook.SetFullBook', 'CryString.FromText',
+    'Localization.LocalizeText' | Where-Object { $entry.resolved.PSObject.Properties["WHGame.$_"] }).Count 11
+Check '0.39.1: Assign where 0.38.0 had it, and AssignText' "$($entry.resolved.'WHGame.CryString.Assign'.rva) $($entry.resolved.'WHGame.CryString.AssignText'.rva)" '0x4be6fc 0x4c1c30'
+Check 'ported from 0.39.1' ($entry.ported_by -like "*KCD:MP 0.39.1's steam-1.5.6-bdf8f9e4 entry") 'True'
+
+# --- staying current by itself (0.39.1.1): the newest KCD:MP and the newest table, never anything unchecked -----
+$rel = @{ assets = @(
+    @{ name = 'KcdMp-server-0.40.0.zip'; browser_download_url = 'https://x/server' },
+    @{ name = 'KcdMp-0.40.0-win-x64.zip'; browser_download_url = 'https://x/zip' },
+    @{ name = 'KcdMp-0.40.0-win-x64.zip.sha256'; browser_download_url = 'https://x/sha' }) } | ConvertTo-Json -Depth 4
+$latest = Get-KcdMpLatestRelease { param($u) $rel }
+Check 'the newest client, not the server zip' "$($latest.Version) $($latest.Name) $($latest.Url)" '0.40.0 KcdMp-0.40.0-win-x64.zip https://x/zip'
+Check 'offline: nothing' ([bool](Get-KcdMpLatestRelease { param($u) throw 'no network' })) 'False'
+$noSha = @{ assets = @(@{ name = 'KcdMp-0.40.0-win-x64.zip'; browser_download_url = 'https://x/zip' }) } | ConvertTo-Json -Depth 4
+Check 'a zip with no .sha256 is never offered' ([bool](Get-KcdMpLatestRelease { param($u) $noSha })) 'False'
+
+$dl = Join-Path ([IO.Path]::GetTempPath()) ('kcdmp-dl-test-' + [guid]::NewGuid().ToString('N'))
+New-Item -ItemType Directory -Path $dl | Out-Null
+try {
+    $bytes = [Text.Encoding]::ASCII.GetBytes('a KCD:MP zip')
+    $sha = [BitConverter]::ToString([Security.Cryptography.SHA256]::Create().ComputeHash($bytes)).Replace('-', '').ToLower()
+    $write = { param($u, $p) [IO.File]::WriteAllBytes($p, $bytes) }
+    $got = Save-KcdMpRelease $latest $dl { param($u) "$sha  KcdMp-0.40.0-win-x64.zip" } $write
+    Check 'a download that matches its .sha256 is named' (Split-Path -Leaf "$got") 'KcdMp-0.40.0-win-x64.zip'
+    Check 'and the unpack finds it' (Split-Path -Leaf (Select-KcdMpZip $dl)) 'KcdMp-0.40.0-win-x64.zip'
+    Remove-Item -LiteralPath $got
+    $bad = Save-KcdMpRelease $latest $dl { param($u) ('0' * 64) } $write
+    Check 'a download that does not match is refused' ($bad -like '*does not match*') 'True'
+    Check 'and nothing is left in Downloads' @(Get-ChildItem -LiteralPath $dl).Count 0
+    $cut = Save-KcdMpRelease $latest $dl { param($u) $sha } { param($u, $p) [IO.File]::WriteAllBytes($p, $bytes); throw 'connection lost' }
+    Check 'a download cut short is refused' ($cut -like '*failed*') 'True'
+    Check 'and no .part is left' @(Get-ChildItem -LiteralPath $dl).Count 0
+
+    $table = Join-Path $dl 'gamepass-1.5.6-74126a4c.json'
+    Copy-Item -LiteralPath (Join-Path $root 'gamepass-1.5.6-74126a4c.json') -Destination $table
+    $mine = Get-Content -LiteralPath $table -Raw
+    $gameSha = $entry.whgame.sha256
+    Check 'the same table: current' (Update-GamePassTable $table $gameSha { param($u) $mine }) 'current'
+    Check 'the table is asked for by its own name' (Update-GamePassTable $table $gameSha { param($u) if ($u -notlike '*/main/gamepass-1.5.6-74126a4c.json') { throw $u }; $mine }) 'current'
+    Check 'offline: the one here stays' (Update-GamePassTable $table $gameSha { param($u) throw 'no network' }) 'offline'
+    $j = $mine | ConvertFrom-Json
+    $j.builds[0].resolved | Add-Member -NotePropertyName 'WHGame.Next.Anchor' -NotePropertyValue ([pscustomobject]@{ method = 'pattern'; rva = '0x1234' })
+    $newer = $j | ConvertTo-Json -Depth 8
+    Check 'another game build''s table is refused' (Update-GamePassTable $table ('0' * 64) { param($u) $newer }) 'not for this game'
+    $j.builds[0].resolved.'WHGame.Next.Anchor'.rva = 'nowhere'
+    Check 'an anchor without an address is refused' (Update-GamePassTable $table $gameSha { param($u) ($j | ConvertTo-Json -Depth 8) }) 'a bad anchor (WHGame.Next.Anchor)'
+    $older = $mine | ConvertFrom-Json
+    $older.builds[0].resolved.PSObject.Properties.Remove('WHGame.Localization.LocalizeText')
+    Check 'an older table (one anchor fewer) never replaces the one here' (Update-GamePassTable $table $gameSha { param($u) ($older | ConvertTo-Json -Depth 8) }) 'older than the one here'
+    Check 'garbage is refused' (Update-GamePassTable $table $gameSha { param($u) '<html>rate limited</html>' }) 'unreadable'
+    Check 'the one here untouched by any refusal' ((Get-Content -LiteralPath $table -Raw) -eq $mine) 'True'
+    Check 'a newer table for this game is taken' (Update-GamePassTable $table $gameSha { param($u) $newer }) 'updated (368 anchors)'
+    Check 'and it is the one here now' @(((Get-Content -LiteralPath $table -Raw) | ConvertFrom-Json).builds[0].resolved.PSObject.Properties).Count 368
+} finally { Remove-Item -LiteralPath $dl -Recurse -Force }
 
 if ($script:fails) { Write-Host "$($script:fails) failed"; exit 1 }
-Write-Host 'PASS: the upgrade rules, the unpack and the 0.38.0 entry'
+Write-Host 'PASS: the upgrade rules, the unpack, the 0.39.1 entry and the self-update'
 exit 0

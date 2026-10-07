@@ -36,6 +36,7 @@ param(
     [switch] $Browse,              # list the servers and stop
     [switch] $Menu,                # pick a server here instead of in KCD:MP's window
     [switch] $NoDefender,          # do not offer the Windows Defender exclusion
+    [switch] $NoUpdate,            # do not look online for a newer KCD:MP or Game Pass table
     [switch] $PauseOnError
 )
 $ErrorActionPreference = 'Stop'
@@ -121,6 +122,23 @@ function Expand-KcdMp([string] $zip) {
 }
 $dll = Join-Path $kcdmpDir 'KcdMp_client.dll'
 if (Repair-KcdMpSwap $kcdmpDir) { Write-Host 'An unpack was cut short last time: it is finished now.' }
+# KCD:MP's newest client from its own release page, into Downloads when it is newer than the one here and than any zip
+# there: the unpack below moves to it like to any zip in Downloads (0.39.1.1: install this package once)
+if (-not $NoUpdate -and -not $KcdMpZip) {
+    $latest = Get-KcdMpLatestRelease
+    if ($latest) {
+        $downloads = Join-Path ([Environment]::GetFolderPath('UserProfile')) 'Downloads'
+        $haveNow = Get-KcdMpUnpackedVersion $kcdmpDir
+        $inDownloads = Select-KcdMpZip $downloads
+        $offeredNow = if ($inDownloads) { Get-KcdMpZipVersion $inDownloads } else { $null }
+        if ((-not $haveNow -or $latest.Version -gt $haveNow) -and (-not $offeredNow -or $latest.Version -gt $offeredNow)) {
+            Write-Host "KCD:MP $($latest.Version) is out: downloading $($latest.Name) into Downloads (about 170 MB, a few minutes)..."
+            $got = Save-KcdMpRelease $latest $downloads
+            if (Test-Path -LiteralPath "$got") { Write-Host 'Downloaded, and it matches its .sha256.' }
+            else { Write-Warning "KCD:MP $($latest.Version) was not downloaded - $got. This start keeps the KCD:MP here." }
+        }
+    }
+}
 $zip = Get-KcdMpZip
 $offered = if ($zip) { Get-KcdMpZipVersion $zip } else { $null }
 $have = Get-KcdMpUnpackedVersion $kcdmpDir
@@ -152,8 +170,13 @@ if (-not $Browse -and -not (Test-Path -LiteralPath $injector)) {
 }
 
 # --- 4. the build table ------------------------------------------------------
-$entry = (Get-Content -LiteralPath $entryFile -Raw | ConvertFrom-Json).builds[0]
 $hash = (Get-FileHash -LiteralPath $whgame -Algorithm SHA256).Hash.ToLower()
+# the project's newest table for this game build: a KCD:MP release that wants new anchors gets one (0.39.1.1)
+if (-not $NoUpdate) {
+    $tableNews = Update-GamePassTable $entryFile $hash
+    if ($tableNews -like 'updated*') { Write-Host "The Game Pass table is the project's newest now: $tableNews." }
+}
+$entry = (Get-Content -LiteralPath $entryFile -Raw | ConvertFrom-Json).builds[0]
 if ($hash -ne $entry.whgame.sha256) {
     throw "This game's WHGame.dll ($($hash.Substring(0,8))...) is not the build this package knows ($($entry.id)). The game was updated: a new table entry is needed (tools\kcdmp-gamepass\anchor_port.py in the project)."
 }

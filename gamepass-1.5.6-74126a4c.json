@@ -716,6 +716,21 @@
           "method": "pattern",
           "rva": "0x9c3be4"
         },
+        "WHGame.C_Item.SetItemHealth": {
+          "method": "pattern",
+          "rva": "0x9c3cc8",
+          "site": "0x9c3c39"
+        },
+        "WHGame.C_Item.GetMaxHealth": {
+          "method": "pattern",
+          "rva": "0x41b058",
+          "site": "0x4f8fc6"
+        },
+        "WHGame.C_Item.GetMinHealth": {
+          "method": "pattern",
+          "rva": "0x4f9064",
+          "site": "0x4f8fc6"
+        },
         "WHGame.C_SoulValueEffect.Apply": {
           "method": "pattern",
           "rva": "0x142ff54"
@@ -1330,6 +1345,14 @@
           "method": "pattern",
           "rva": "0x9dc0e8"
         },
+        "WHGame.C_ItemAttachmentManager.ClearHand": {
+          "method": "pattern",
+          "rva": "0x9bde5c"
+        },
+        "WHGame.I_ActorAction.End": {
+          "method": "pattern",
+          "rva": "0x7a8f50"
+        },
         "WHGame.C_ItemAttachmentManager.ItemInHand": {
           "method": "pattern",
           "rva": "0x4f4190"
@@ -1776,6 +1799,39 @@
           "slot": 25,
           "rva": "0x9da688",
           "vtable": "0x3af0708"
+        },
+        "WHGame.C_UIInventoryBase.ShowItemInfo": {
+          "method": "slot",
+          "slot": 23,
+          "rva": "0x525dfc",
+          "vtable": "0x3f77940"
+        },
+        "WHGame.C_UIInventoryBase.SetInfoArray": {
+          "method": "pattern",
+          "rva": "0x526b08"
+        },
+        "WHGame.CryString.AssignText": {
+          "method": "pattern",
+          "rva": "0x4c1c30"
+        },
+        "WHGame.UIElement.SetInfoVector": {
+          "method": "pattern",
+          "rva": "0x8a6b70",
+          "site": "0x9e46dd"
+        },
+        "WHGame.C_UIBook.SetFullBook": {
+          "method": "slot",
+          "slot": 1,
+          "rva": "0x2c54208",
+          "vtable": "0x3dc4c88"
+        },
+        "WHGame.CryString.FromText": {
+          "method": "pattern",
+          "rva": "0x4c1a94"
+        },
+        "WHGame.Localization.LocalizeText": {
+          "method": "pattern",
+          "rva": "0x39cdac"
         }
       },
       "exe": {
@@ -1786,7 +1842,7 @@
         "note": "the Game Pass KingdomCome.exe cannot be read by a user process (the package denies it); only its size is known"
       },
       "steam_buildid": null,
-      "ported_by": "tools/kcdmp-gamepass/anchor_port.py (this fork), from KCD:MP 0.38.0's steam-1.5.6-bdf8f9e4 entry"
+      "ported_by": "tools/kcdmp-gamepass/anchor_port.py (this fork), from KCD:MP 0.39.1's steam-1.5.6-bdf8f9e4 entry"
     }
   ]
 }
